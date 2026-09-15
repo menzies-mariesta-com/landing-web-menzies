@@ -7,6 +7,11 @@ import adapter from '@sveltejs/adapter-netlify';
 import { sveltekit } from '@sveltejs/kit/vite';
 
 export default defineConfig({
+	server: {
+		port: 1025,
+		host: true,
+		strictPort: true
+	},
 	plugins: [
 		tailwindcss(),
 		sveltekit({

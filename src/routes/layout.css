@@ -1,3 +1,33 @@
 @import 'tailwindcss';
-@plugin '@tailwindcss/forms';
-@plugin '@tailwindcss/typography';
+/* Wash UI ships daisyUI + utility copies. Layer as components so app Tailwind
+   utilities (e.g. hidden + lg:flex) keep correct cascade order. */
+@import '@menzies-mariesta-com/menzies-design-wash-ui/styles.css' layer(components);
+
+html {
+	scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+/* Horizontal catalog rows: hide scrollbar, keep swipe/scroll */
+.store-row-scroll {
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+}
+
+.store-row-scroll::-webkit-scrollbar {
+	display: none;
+}
