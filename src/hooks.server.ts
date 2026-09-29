@@ -1,12 +1,8 @@
-import { sequence } from '@sveltejs/kit/hooks';
-import { building } from '$app/env';
-import { auth } from '#lib/server/auth';
-import { svelteKitHandler } from 'better-auth/svelte-kit';
 import type { Handle } from '@sveltejs/kit';
-import { getTextDirection } from '#lib/paraglide/runtime';
-import { paraglideMiddleware } from '#lib/paraglide/server';
+import { getTextDirection } from '$lib/paraglide/runtime';
+import { paraglideMiddleware } from '$lib/paraglide/server';
 
-const handleParaglide: Handle = ({ event, resolve }) =>
+export const handle: Handle = ({ event, resolve }) =>
 	paraglideMiddleware(event.request, ({ request, locale }) => {
 		event.request = request;
 
@@ -17,24 +13,3 @@ const handleParaglide: Handle = ({ event, resolve }) =>
 					.replace('%paraglide.dir%', getTextDirection(locale))
 		});
 	});
-
-/** Session cookie names used by better-auth (skip DB lookup when absent). */
-function hasSessionCookie(cookieHeader: string | null): boolean {
-	if (!cookieHeader) return false;
-	return /(?:^|;\s*)(?:better-auth\.session_token|session_token)=/.test(cookieHeader);
-}
-
-const handleBetterAuth: Handle = async ({ event, resolve }) => {
-	// Skip session lookups on anonymous public HTML for TTFB.
-	if (hasSessionCookie(event.request.headers.get('cookie'))) {
-		const session = await auth.api.getSession({ headers: event.request.headers });
-		if (session) {
-			event.locals.session = session.session;
-			event.locals.user = session.user;
-		}
-	}
-
-	return svelteKitHandler({ event, resolve, auth, building });
-};
-
-export const handle: Handle = sequence(handleParaglide, handleBetterAuth);

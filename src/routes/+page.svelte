@@ -1,22 +1,17 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import StoreNav from '#lib/components/home/StoreNav.svelte';
-	import StoreHero from '#lib/components/home/StoreHero.svelte';
-	import FeaturedSpotlight from '#lib/components/home/FeaturedSpotlight.svelte';
-	import AppRow from '#lib/components/home/AppRow.svelte';
-	import PlatformStory from '#lib/components/home/PlatformStory.svelte';
-	import StoreCta from '#lib/components/home/StoreCta.svelte';
-	import StoreFooter from '#lib/components/home/StoreFooter.svelte';
-	import { getFeaturedApp, getStoreRows } from '#lib/tool/store-catalog';
-	import { SITE_NAME, SITE_TAGLINE, buildSeo, siteOrigin } from '#lib/util/seo';
-
-	const featured = getFeaturedApp();
-	const rows = getStoreRows();
+	import StoreNav from '$lib/components/home/StoreNav.svelte';
+	import StoreHero from '$lib/components/home/StoreHero.svelte';
+	import AppsSection from '$lib/components/home/AppsSection.svelte';
+	import PlansSection from '$lib/components/home/PlansSection.svelte';
+	import LibrarySection from '$lib/components/home/LibrarySection.svelte';
+	import StoreFooter from '$lib/components/home/StoreFooter.svelte';
+	import { SITE_NAME, SITE_TAGLINE, buildSeo, siteOrigin } from '$lib/util/seo';
 
 	const seo = $derived(
 		buildSeo({
 			title: SITE_NAME,
-			description: `Menzies Store: ${SITE_TAGLINE}. Browse curated apps for productivity, creative work, and developers.`,
+			description: `Menzies: ${SITE_TAGLINE}. Web service plans (Medora, Loomline, Lumi Studio), apps, and libraries.`,
 			path: '/',
 			url: page.url,
 			type: 'website',
@@ -26,14 +21,14 @@
 					'@type': 'Organization',
 					name: 'Menzies',
 					url: siteOrigin(page.url),
-					logo: `${siteOrigin(page.url)}/og-default.png`
+					logo: `${siteOrigin(page.url)}/logo.svg`
 				},
 				{
 					'@context': 'https://schema.org',
 					'@type': 'WebSite',
 					name: SITE_NAME,
 					url: siteOrigin(page.url),
-					description: `Menzies Store: ${SITE_TAGLINE}`,
+					description: `Menzies: ${SITE_TAGLINE}. Web service plans, apps, and libraries.`,
 					publisher: {
 						'@type': 'Organization',
 						name: 'Menzies'
@@ -43,7 +38,7 @@
 					'@context': 'https://schema.org',
 					'@type': 'CollectionPage',
 					name: SITE_NAME,
-					description: `Curated software catalog from Menzies.`,
+					description: 'Menzies web service plans, apps, and libraries.',
 					url: `${siteOrigin(page.url)}/`
 				}
 			]
@@ -75,14 +70,9 @@
 	<StoreNav />
 	<main>
 		<StoreHero />
-		<FeaturedSpotlight app={featured} />
-		<div id="catalog" class="scroll-mt-20">
-			{#each rows as row (row.id)}
-				<AppRow {row} />
-			{/each}
-		</div>
-		<PlatformStory />
-		<StoreCta />
+		<PlansSection />
+		<AppsSection />
+		<LibrarySection />
 	</main>
 	<StoreFooter />
 </div>

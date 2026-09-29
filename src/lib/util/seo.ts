@@ -1,10 +1,11 @@
 export const SITE_NAME = 'Menzies Store';
 export const SITE_TAGLINE = 'Software worth opening';
+/** Public contact address for mailto: chrome (nav, footer). */
+export const CONTACT_EMAIL = 'zarnihlawn@outlook.com';
 export const DEFAULT_DESCRIPTION =
-	'Menzies Store: discover polished apps for work and craft. Browse editors\' picks, productivity, and creative tools from the Menzies catalog.';
-
+	'Menzies: software worth opening. Web services (Medora, Loomline, Lumi Studio), apps, and libraries.';
 /** Absolute site origin. Prefer the request URL; fall back for prerender tooling. */
-export function siteOrigin(url?: URL): string {
+export function siteOrigin(url?: Pick<URL, 'origin'>): string {
 	if (url) return url.origin;
 	return 'https://store.menzies.design';
 }
@@ -13,7 +14,8 @@ export type SeoInput = {
 	title: string;
 	description?: string;
 	path?: string;
-	url?: URL;
+	/** Accepts `page.url` from `$app/state` (readonly searchParams). */
+	url?: Pick<URL, 'origin' | 'pathname'>;
 	type?: 'website' | 'article';
 	image?: string;
 	noindex?: boolean;

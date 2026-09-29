@@ -1,233 +1,129 @@
-export type StoreCategoryId =
-	| 'editors-picks'
-	| 'productivity'
-	| 'creative'
-	| 'developer'
-	| 'utilities';
+/** Real Menzies web-service plans, apps, and library items for the landing home page. */
 
-export type StoreApp = {
+export type MenziesApp = {
 	id: string;
 	name: string;
-	category: StoreCategoryId;
-	categoryLabel: string;
-	rating: number;
+	kind: string;
 	tagline: string;
-	/** Tailwind-friendly accent token for tile mark */
+	description: string;
 	accent: 'primary' | 'secondary' | 'accent' | 'info' | 'success' | 'warning';
-	/** Single letter / short mark shown in the app icon tile */
-	mark: string;
-	featured?: boolean;
-	featuredBlurb?: string;
+	/** Public URL under `/static` (served from site root). */
+	iconSrc: string;
+	githubUrl: string;
+	latestJsonUrl: string;
 };
 
-export type StoreRow = {
+export type MenziesPlan = {
 	id: string;
-	title: string;
-	subtitle: string;
-	apps: StoreApp[];
+	name: string;
+	kind: string;
+	description: string;
+	/** Public URL under `/static` (served from site root). */
+	logoSrc: string;
+	ctaLabel: string;
+	ctaHref: string;
 };
 
-export const STORE_CATEGORIES: { id: StoreCategoryId; label: string }[] = [
-	{ id: 'editors-picks', label: "Editors' picks" },
-	{ id: 'productivity', label: 'Productivity' },
-	{ id: 'creative', label: 'Creative' },
-	{ id: 'developer', label: 'Developer' },
-	{ id: 'utilities', label: 'Utilities' }
-];
+export type MenziesLibraryItem = {
+	id: string;
+	name: string;
+	kind: string;
+	tagline: string;
+	version?: string;
+	/** Public URL under `/static` (served from site root). */
+	logoSrc: string;
+	ctaLabel: string;
+	ctaHref: string;
+	secondaryCtaLabel?: string;
+	secondaryCtaHref?: string;
+};
 
-export const STORE_APPS: StoreApp[] = [
+export const MENZIES_APPS: MenziesApp[] = [
 	{
-		id: 'northline',
-		name: 'Northline',
-		category: 'editors-picks',
-		categoryLabel: 'Productivity',
-		rating: 4.9,
-		tagline: 'Calm project boards for focused teams.',
+		id: 'calculator',
+		name: 'Calculator',
+		kind: 'Desktop',
+		tagline: 'Standard and scientific calculator for the Menzies desktop suite.',
+		description:
+			'Linux-first desktop calculator with standard and scientific pads, unit conversion, history, and Wash UI chrome. Updates ship through GitHub Releases.',
 		accent: 'primary',
-		mark: 'N',
-		featured: true,
-		featuredBlurb:
-			'Today’s spotlight: a workspace that stays out of the way so shipping stays front of mind.'
+		iconSrc: '/calculator-app-icon.svg',
+		githubUrl: 'https://github.com/menzies-mariesta-com/calculator-desktop-menzies',
+		latestJsonUrl:
+			'https://github.com/menzies-mariesta-com/calculator-desktop-menzies/releases/latest/download/latest.json'
 	},
 	{
-		id: 'lumen-notes',
-		name: 'Lumen Notes',
-		category: 'editors-picks',
-		categoryLabel: 'Productivity',
-		rating: 4.8,
-		tagline: 'Capture ideas with ink-clean structure.',
+		id: 'gallery',
+		name: 'Gallery',
+		kind: 'Desktop',
+		tagline: 'Browse Pictures with a quiet lightbox and folder grid.',
+		description:
+			'Image gallery for the Menzies desktop suite. Opens your Pictures folder by default, browses subfolders from the grid, and opens a quiet lightbox viewer.',
 		accent: 'secondary',
-		mark: 'L'
+		iconSrc: '/gallery-app-icon.svg',
+		githubUrl: 'https://github.com/menzies-mariesta-com/gallery-desktop-menzies',
+		latestJsonUrl:
+			'https://github.com/menzies-mariesta-com/gallery-desktop-menzies/releases/latest/download/latest.json'
 	},
 	{
-		id: 'harbor',
-		name: 'Harbor',
-		category: 'editors-picks',
-		categoryLabel: 'Utilities',
-		rating: 4.7,
-		tagline: 'Secure vaults with a paper-quiet UI.',
+		id: 'notepad',
+		name: 'Notepad',
+		kind: 'Desktop',
+		tagline: 'Plain-text editing with tabs, find/replace, and autosave.',
+		description:
+			'Plain-text notepad for UTF-8 files with tabs, find and replace, word wrap, autosave after the first save, and draft persistence for untitled tabs.',
 		accent: 'info',
-		mark: 'H'
-	},
-	{
-		id: 'pulse-desk',
-		name: 'Pulse Desk',
-		category: 'productivity',
-		categoryLabel: 'Productivity',
-		rating: 4.6,
-		tagline: 'Ops dashboards without the noise.',
-		accent: 'primary',
-		mark: 'P'
-	},
-	{
-		id: 'folio',
-		name: 'Folio',
-		category: 'productivity',
-		categoryLabel: 'Productivity',
-		rating: 4.5,
-		tagline: 'Documents that feel like print.',
-		accent: 'accent',
-		mark: 'F'
-	},
-	{
-		id: 'relay',
-		name: 'Relay',
-		category: 'productivity',
-		categoryLabel: 'Productivity',
-		rating: 4.4,
-		tagline: 'Async updates that stay readable.',
-		accent: 'secondary',
-		mark: 'R'
-	},
-	{
-		id: 'canvas-ink',
-		name: 'Canvas Ink',
-		category: 'creative',
-		categoryLabel: 'Creative',
-		rating: 4.8,
-		tagline: 'Illustration with wash-aware brushes.',
-		accent: 'accent',
-		mark: 'C'
-	},
-	{
-		id: 'reelcraft',
-		name: 'Reelcraft',
-		category: 'creative',
-		categoryLabel: 'Creative',
-		rating: 4.6,
-		tagline: 'Short-form edits with studio polish.',
-		accent: 'warning',
-		mark: 'R'
-	},
-	{
-		id: 'typefoundry',
-		name: 'Typefoundry',
-		category: 'creative',
-		categoryLabel: 'Creative',
-		rating: 4.7,
-		tagline: 'Specimen sheets for modern type.',
-		accent: 'primary',
-		mark: 'T'
-	},
-	{
-		id: 'shipyard',
-		name: 'Shipyard',
-		category: 'developer',
-		categoryLabel: 'Developer',
-		rating: 4.9,
-		tagline: 'Release trains you can actually trust.',
-		accent: 'success',
-		mark: 'S'
-	},
-	{
-		id: 'trace',
-		name: 'Trace',
-		category: 'developer',
-		categoryLabel: 'Developer',
-		rating: 4.5,
-		tagline: 'Observability with a human timeline.',
-		accent: 'info',
-		mark: 'T'
-	},
-	{
-		id: 'schema',
-		name: 'Schema',
-		category: 'developer',
-		categoryLabel: 'Developer',
-		rating: 4.6,
-		tagline: 'API design that stays consistent.',
-		accent: 'secondary',
-		mark: 'S'
-	},
-	{
-		id: 'compass',
-		name: 'Compass',
-		category: 'utilities',
-		categoryLabel: 'Utilities',
-		rating: 4.4,
-		tagline: 'Local file tools with cloud manners.',
-		accent: 'primary',
-		mark: 'C'
-	},
-	{
-		id: 'beacon',
-		name: 'Beacon',
-		category: 'utilities',
-		categoryLabel: 'Utilities',
-		rating: 4.3,
-		tagline: 'Status pages that look intentional.',
-		accent: 'warning',
-		mark: 'B'
-	},
-	{
-		id: 'ledger',
-		name: 'Ledger Lite',
-		category: 'utilities',
-		categoryLabel: 'Utilities',
-		rating: 4.5,
-		tagline: 'Personal finance, paper-grain calm.',
-		accent: 'success',
-		mark: 'L'
+		iconSrc: '/notepad-app-icon.svg',
+		githubUrl: 'https://github.com/menzies-mariesta-com/notepad-desktop-menzies',
+		latestJsonUrl:
+			'https://github.com/menzies-mariesta-com/notepad-desktop-menzies/releases/latest/download/latest.json'
 	}
 ];
 
-export function getFeaturedApp(): StoreApp {
-	return STORE_APPS.find((a) => a.featured) ?? STORE_APPS[0];
-}
+export const MENZIES_PLANS: MenziesPlan[] = [
+	{
+		id: 'medora',
+		name: 'Medora',
+		kind: 'Web service',
+		description:
+			'Hospital workspace for patients, visits, EMR, billing, inventory, and clinical workflows in one calm console.',
+		logoSrc: '/medora-logo.svg',
+		ctaLabel: 'Learn more',
+		ctaHref: 'https://github.com/menzies-mariesta-com/medora-web-menzies'
+	},
+	{
+		id: 'loomline',
+		name: 'Loomline',
+		kind: 'Web service',
+		description:
+			'Multi-tenant queue management for lobbies and counters: kiosk, QR tickets, TV voice calling, and appointments.',
+		logoSrc: '/loomline-logo.svg',
+		ctaLabel: 'Learn more',
+		ctaHref: 'https://github.com/menzies-mariesta-com/loomline-web-menzies'
+	},
+	{
+		id: 'lumi-studio',
+		name: 'Lumi Studio',
+		kind: 'Web service',
+		description:
+			'Client onboarding, studio chat, and project tracking from pitch through scoped delivery and file handoff.',
+		logoSrc: '/lumi-studio-logo.png',
+		ctaLabel: 'Learn more',
+		ctaHref: 'https://github.com/menzies-mariesta-com/lumi-studio-web-menzies'
+	}
+];
 
-export function getStoreRows(): StoreRow[] {
-	const byCategory = (id: StoreCategoryId) => STORE_APPS.filter((a) => a.category === id);
-
-	return [
-		{
-			id: 'editors-picks',
-			title: "Editors' picks",
-			subtitle: 'Hand-chosen software worth opening today.',
-			apps: byCategory('editors-picks')
-		},
-		{
-			id: 'productivity',
-			title: 'Productivity',
-			subtitle: 'Boards, docs, and desks that stay quiet.',
-			apps: byCategory('productivity')
-		},
-		{
-			id: 'creative',
-			title: 'Creative',
-			subtitle: 'Tools for ink, type, and motion.',
-			apps: byCategory('creative')
-		},
-		{
-			id: 'developer',
-			title: 'Developer',
-			subtitle: 'Ship, observe, and design APIs cleanly.',
-			apps: byCategory('developer')
-		},
-		{
-			id: 'utilities',
-			title: 'Utilities',
-			subtitle: 'Everyday tools with quiet polish.',
-			apps: byCategory('utilities')
-		}
-	];
-}
+export const MENZIES_LIBRARY: MenziesLibraryItem[] = [
+	{
+		id: 'wash-ui',
+		name: 'Wash UI',
+		kind: 'Design library',
+		tagline: 'Component library and design system for Menzies products.',
+		version: '1.3.0',
+		logoSrc: '/wash-ui-logo.svg',
+		ctaLabel: 'Open gallery',
+		ctaHref: 'https://design-menzies.netlify.app',
+		secondaryCtaLabel: 'GitHub',
+		secondaryCtaHref: 'https://github.com/menzies-mariesta-com/design-lib-menzies'
+	}
+];

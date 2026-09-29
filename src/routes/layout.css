@@ -21,13 +21,3 @@ html {
 		scroll-behavior: auto !important;
 	}
 }
-
-/* Horizontal catalog rows: hide scrollbar, keep swipe/scroll */
-.store-row-scroll {
-	scrollbar-width: none;
-	-ms-overflow-style: none;
-}
-
-.store-row-scroll::-webkit-scrollbar {
-	display: none;
-}

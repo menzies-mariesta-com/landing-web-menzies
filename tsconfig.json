@@ -5,8 +5,5 @@
 		"sourceMap": true,
 		"strict": true
 	},
-	"include": [
-		"src",
-		"drizzle.config.ts"
-	]
+	"include": ["src"]
 }
