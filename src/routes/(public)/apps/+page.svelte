@@ -2,11 +2,16 @@
 	import { page } from '$app/state';
 	import CatalogSearch from '$lib/components/catalog/CatalogSearch.svelte';
 	import AppsCatalog from '$lib/components/home/AppsCatalog.svelte';
+	import SeoHead from '$lib/components/seo/SeoHead.svelte';
 	import StoreFooter from '$lib/components/home/StoreFooter.svelte';
 	import StoreNav from '$lib/components/home/StoreNav.svelte';
 	import { MENZIES_APPS } from '$lib/tool/store-catalog';
 	import { m } from '$lib/paraglide/messages';
-	import { buildSeo } from '$lib/util/seo';
+	import {
+		breadcrumbJsonLd,
+		buildSeo,
+		collectionPageJsonLd
+	} from '$lib/util/seo';
 
 	let query = $state('');
 
@@ -21,34 +26,31 @@
 
 	const seo = $derived(
 		buildSeo({
-			title: m.apps_page_title(),
+			title: m.apps_seo_title(),
 			description: m.apps_seo_description(),
 			path: '/apps',
 			url: page.url,
-			type: 'website'
+			type: 'website',
+			jsonLd: [
+				collectionPageJsonLd({
+					name: m.apps_page_title(),
+					description: m.apps_seo_description(),
+					path: '/apps',
+					url: page.url
+				}),
+				breadcrumbJsonLd(
+					[
+						{ name: 'Home', path: '/' },
+						{ name: m.apps_page_title(), path: '/apps' }
+					],
+					page.url
+				)
+			]
 		})
 	);
 </script>
 
-<svelte:head>
-	<title>{seo.title}</title>
-	<meta name="description" content={seo.description} />
-	<link rel="canonical" href={seo.canonical} />
-	<meta property="og:title" content={seo.ogTitle} />
-	<meta property="og:description" content={seo.ogDescription} />
-	<meta property="og:url" content={seo.ogUrl} />
-	<meta property="og:type" content={seo.ogType} />
-	<meta property="og:image" content={seo.ogImage} />
-	<meta property="og:site_name" content={seo.ogSiteName} />
-	<meta name="twitter:card" content={seo.twitterCard} />
-	<meta name="twitter:image" content={seo.twitterImage} />
-	<meta name="twitter:title" content={seo.ogTitle} />
-	<meta name="twitter:description" content={seo.ogDescription} />
-	{#if seo.robots}
-		<meta name="robots" content={seo.robots} />
-	{/if}
-	{@html `<script type="application/ld+json">${seo.jsonLd}</script>`}
-</svelte:head>
+<SeoHead {seo} />
 
 <div class="store-apps">
 	<StoreNav />

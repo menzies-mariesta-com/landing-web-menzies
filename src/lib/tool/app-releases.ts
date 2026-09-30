@@ -106,6 +106,56 @@ export function parseLatestJson(data: LatestJson): AppReleaseManifest {
 	};
 }
 
+export function appLatestProxyPath(appId: string): string {
+	return `/api/apps/${encodeURIComponent(appId)}/latest`;
+}
+
+function isAppReleaseManifest(value: unknown): value is AppReleaseManifest {
+	if (!value || typeof value !== 'object') return false;
+	const v = value as AppReleaseManifest;
+	return typeof v.version === 'string' && Array.isArray(v.downloads);
+}
+
+/** Browser-safe: same-origin proxy that server-fetches GitHub latest.json. */
+export async function fetchAppReleaseViaProxy(
+	appId: string,
+	init?: RequestInit & { timeoutMs?: number }
+): Promise<AppReleaseManifest> {
+	const timeoutMs = init?.timeoutMs ?? 10000;
+	const controller = new AbortController();
+	const timer = setTimeout(() => controller.abort(), timeoutMs);
+
+	try {
+		const res = await fetch(appLatestProxyPath(appId), {
+			...init,
+			signal: init?.signal ?? controller.signal,
+			headers: {
+				Accept: 'application/json',
+				...(init?.headers ?? {})
+			}
+		});
+
+		const body: unknown = await res.json().catch(() => null);
+		if (!res.ok) {
+			const msg =
+				body &&
+				typeof body === 'object' &&
+				'message' in body &&
+				typeof (body as { message: unknown }).message === 'string'
+					? (body as { message: string }).message
+					: `Release proxy returned ${res.status}`;
+			throw new Error(msg);
+		}
+		if (!isAppReleaseManifest(body)) {
+			throw new Error('Release proxy returned an unexpected payload');
+		}
+		return body;
+	} finally {
+		clearTimeout(timer);
+	}
+}
+
+/** Server-side (or Node) fetch of a Tauri updater latest.json URL. */
 export async function fetchLatestJson(
 	url: string,
 	init?: RequestInit & { timeoutMs?: number }
@@ -117,6 +167,7 @@ export async function fetchLatestJson(
 	try {
 		const res = await fetch(url, {
 			...init,
+			redirect: 'follow',
 			signal: init?.signal ?? controller.signal,
 			headers: {
 				Accept: 'application/json',

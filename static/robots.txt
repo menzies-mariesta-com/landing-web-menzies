@@ -1,7 +1,10 @@
-# Allow public crawl; disallow private/auth surfaces when added
+# Allow public crawl; disallow private/auth surfaces and APIs
 User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /demo/
+
+# Cookie-only locales: do not treat /my or /ja as alternate language sites
+# (Netlify 301s those paths to the canonical unprefixed URLs.)
 
 Sitemap: https://store.menzies.design/sitemap.xml

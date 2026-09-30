@@ -5,7 +5,7 @@
 	import { washIcons } from '$lib/tool/wash-icons';
 	import { type MenziesApp } from '$lib/tool/store-catalog';
 	import {
-		fetchLatestJson,
+		fetchAppReleaseViaProxy,
 		type AppReleaseManifest
 	} from '$lib/tool/app-releases';
 	import { m } from '$lib/paraglide/messages';
@@ -37,12 +37,17 @@
 		manifest = cached ?? null;
 
 		try {
-			const next = await fetchLatestJson(app.latestJsonUrl, { timeoutMs: 10000 });
+			// Same-origin proxy: browsers cannot fetch GitHub release assets (CORS).
+			const next = await fetchAppReleaseViaProxy(app.id, { timeoutMs: 12000 });
 			clientCache = { ...clientCache, [app.id]: next };
 			manifest = next;
-		} catch {
+		} catch (err) {
 			if (!manifest) {
-				error = 'Could not load download links right now. Try again in a moment.';
+				const detail = err instanceof Error ? err.message : '';
+				error =
+					detail && !/abort|fetch/i.test(detail)
+						? `Could not load download links (${detail}). Try again in a moment.`
+						: 'Could not load download links right now. Try again in a moment.';
 			}
 		} finally {
 			loading = false;
@@ -84,11 +89,12 @@
 				>
 					<img
 						src={app.iconSrc}
-						alt=""
+						alt={`${app.name} icon`}
 						width="48"
 						height="48"
 						class="size-12 shrink-0 rounded-box"
 						decoding="async"
+						loading="lazy"
 					/>
 					<span class="min-w-0">
 						<span class="block font-medium text-base-content">{app.name}</span>

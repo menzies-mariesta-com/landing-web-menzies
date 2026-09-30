@@ -1,43 +1,41 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import logo from '$lib/asset/image/logo.svg';
+	import SeoHead from '$lib/components/seo/SeoHead.svelte';
 	import StoreFooter from '$lib/components/home/StoreFooter.svelte';
 	import StoreNav from '$lib/components/home/StoreNav.svelte';
 	import WashIcon from '$lib/tool/WashIcon.svelte';
 	import { washIcons } from '$lib/tool/wash-icons';
 	import { m } from '$lib/paraglide/messages';
-	import { buildSeo } from '$lib/util/seo';
+	import { breadcrumbJsonLd, buildSeo, webPageJsonLd } from '$lib/util/seo';
 
 	const seo = $derived(
 		buildSeo({
-			title: m.branding_title(),
+			title: m.branding_seo_title(),
 			description: m.branding_seo_description(),
 			path: '/branding',
 			url: page.url,
-			type: 'website'
+			type: 'website',
+			jsonLd: [
+				webPageJsonLd({
+					name: m.branding_title(),
+					description: m.branding_seo_description(),
+					path: '/branding',
+					url: page.url
+				}),
+				breadcrumbJsonLd(
+					[
+						{ name: 'Home', path: '/' },
+						{ name: m.branding_title(), path: '/branding' }
+					],
+					page.url
+				)
+			]
 		})
 	);
 </script>
 
-<svelte:head>
-	<title>{seo.title}</title>
-	<meta name="description" content={seo.description} />
-	<link rel="canonical" href={seo.canonical} />
-	<meta property="og:title" content={seo.ogTitle} />
-	<meta property="og:description" content={seo.ogDescription} />
-	<meta property="og:url" content={seo.ogUrl} />
-	<meta property="og:type" content={seo.ogType} />
-	<meta property="og:image" content={seo.ogImage} />
-	<meta property="og:site_name" content={seo.ogSiteName} />
-	<meta name="twitter:card" content={seo.twitterCard} />
-	<meta name="twitter:image" content={seo.twitterImage} />
-	<meta name="twitter:title" content={seo.ogTitle} />
-	<meta name="twitter:description" content={seo.ogDescription} />
-	{#if seo.robots}
-		<meta name="robots" content={seo.robots} />
-	{/if}
-	{@html `<script type="application/ld+json">${seo.jsonLd}</script>`}
-</svelte:head>
+<SeoHead {seo} />
 
 <div class="store-branding">
 	<StoreNav />

@@ -1,10 +1,8 @@
 <script lang="ts">
-	import type { Path } from '$app/types';
-	import { resolve } from '$app/paths';
-	import { page } from '$app/state';
 	import { onMount } from 'svelte';
-	import { locales, localizeHref } from '$lib/paraglide/runtime';
 	import { initWash } from '@menzies-mariesta-com/menzies-design-wash-ui/core';
+	// Relative path bypasses package "exports" so Vite can fingerprint + preload the same face CSS uses.
+	import fraunces600Url from '../../node_modules/@menzies-mariesta-com/menzies-design-wash-ui/dist/assets/fraunces-latin-600-normal.woff2?url';
 	import './layout.css';
 
 	let { children } = $props();
@@ -20,16 +18,17 @@
 	<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 	<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 	<link rel="manifest" href="/site.webmanifest" />
+	<link
+		rel="preload"
+		href={fraunces600Url}
+		as="font"
+		type="font/woff2"
+		crossorigin="anonymous"
+	/>
 </svelte:head>
 
 <div class="page-wash paper-grain min-h-dvh">
 	{#if children}
 		{@render children()}
 	{/if}
-</div>
-
-<div style="display: none">
-	{#each locales as locale (locale)}
-		<a href={resolve(localizeHref(page.url.pathname, { locale }) as Path)}>{locale}</a>
-	{/each}
 </div>

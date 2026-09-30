@@ -25,6 +25,7 @@
 						height="48"
 						class="size-12 shrink-0 rounded-box"
 						decoding="async"
+						loading="lazy"
 					/>
 					<p class="mt-4 text-sm text-ink-muted">{item.kind}</p>
 					<h3 class="font-display mt-1 text-xl font-semibold tracking-tight">

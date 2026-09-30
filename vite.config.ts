@@ -36,7 +36,11 @@ export default defineConfig({
 			adapter: adapter(),
 			preprocess: [mdsvex({ extensions: ['.svx', '.md'] })],
 			extensions: ['.svelte', '.svx', '.md'],
-			experimental: { remoteFunctions: true }
+			experimental: { remoteFunctions: true },
+			// Absolute canonical / OG URLs in prerendered HTML (not http://sveltekit-prerender).
+			paths: {
+				origin: 'https://store.menzies.design'
+			}
 		}),
 
 		paraglideVitePlugin({

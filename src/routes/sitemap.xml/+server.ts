@@ -1,10 +1,11 @@
 import type { RequestHandler } from './$types';
-import { siteOrigin } from '$lib/util/seo';
+import { PRODUCTION_ORIGIN, siteOrigin } from '$lib/util/seo';
 
 export const prerender = true;
 
 export const GET: RequestHandler = ({ url }) => {
-	const origin = siteOrigin(url);
+	const origin = siteOrigin(url) || PRODUCTION_ORIGIN;
+	const lastmod = new Date().toISOString().slice(0, 10);
 	const urls: { loc: string; priority: string; changefreq: string }[] = [
 		{ loc: `${origin}/`, priority: '1.0', changefreq: 'weekly' },
 		{ loc: `${origin}/plans`, priority: '0.9', changefreq: 'weekly' },
@@ -19,6 +20,7 @@ ${urls
 	.map(
 		({ loc, priority, changefreq }) => `  <url>
     <loc>${loc}</loc>
+    <lastmod>${lastmod}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
   </url>`
@@ -30,7 +32,8 @@ ${urls
 	return new Response(body, {
 		headers: {
 			'Content-Type': 'application/xml; charset=utf-8',
-			'Cache-Control': 'public, max-age=3600'
+			'Cache-Control': 'public, max-age=0, must-revalidate',
+			'Netlify-CDN-Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400'
 		}
 	});
 };

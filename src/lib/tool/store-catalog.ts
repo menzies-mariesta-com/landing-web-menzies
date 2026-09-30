@@ -77,6 +77,19 @@ export const MENZIES_APPS: MenziesApp[] = [
 		githubUrl: 'https://github.com/menzies-mariesta-com/notepad-desktop-menzies',
 		latestJsonUrl:
 			'https://github.com/menzies-mariesta-com/notepad-desktop-menzies/releases/latest/download/latest.json'
+	},
+	{
+		id: 'portal',
+		name: 'Portal',
+		kind: 'Desktop',
+		tagline: 'OpenVPN client with Wash UI for the Menzies desktop suite.',
+		description:
+			'Linux-first OpenVPN client for Menzies OS. Import .ovpn files or folders, connect with a simple Wash UI, and keep OpenVPN bundled inside the app. Updates ship through GitHub Releases.',
+		accent: 'accent',
+		iconSrc: '/portal-app-icon.svg',
+		githubUrl: 'https://github.com/menzies-mariesta-com/portal-desktop-menzies',
+		latestJsonUrl:
+			'https://github.com/menzies-mariesta-com/portal-desktop-menzies/releases/latest/download/latest.json'
 	}
 ];
 
