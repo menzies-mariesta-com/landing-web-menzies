@@ -1,5 +1,6 @@
 import { error, json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
+import { nativeFetch } from '$lib/server/native-fetch';
 import { fetchLatestJson } from '$lib/tool/app-releases';
 import { MENZIES_APPS } from '$lib/tool/store-catalog';
 
@@ -15,7 +16,9 @@ export const GET: RequestHandler = async ({ params, setHeaders }) => {
 	}
 
 	try {
+		// Use nativeFetch so concurrent page SSR's DEV fetch patch cannot warn.
 		const manifest = await fetchLatestJson(app.latestJsonUrl, {
+			fetch: nativeFetch,
 			timeoutMs: 15000,
 			headers: {
 				Accept: 'application/json',

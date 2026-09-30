@@ -116,11 +116,18 @@ function isAppReleaseManifest(value: unknown): value is AppReleaseManifest {
 	return typeof v.version === 'string' && Array.isArray(v.downloads);
 }
 
-/** Browser-safe: same-origin proxy that server-fetches GitHub latest.json. */
+export type FetchLike = typeof globalThis.fetch;
+
+/** Browser-only: same-origin proxy that server-fetches GitHub latest.json. */
 export async function fetchAppReleaseViaProxy(
 	appId: string,
 	init?: RequestInit & { timeoutMs?: number }
 ): Promise<AppReleaseManifest> {
+	// Relative `/api/...` must never run during SSR (Kit throws / warns).
+	if (typeof window === 'undefined') {
+		throw new Error('fetchAppReleaseViaProxy must run in the browser');
+	}
+
 	const timeoutMs = init?.timeoutMs ?? 10000;
 	const controller = new AbortController();
 	const timer = setTimeout(() => controller.abort(), timeoutMs);
@@ -158,15 +165,15 @@ export async function fetchAppReleaseViaProxy(
 /** Server-side (or Node) fetch of a Tauri updater latest.json URL. */
 export async function fetchLatestJson(
 	url: string,
-	init?: RequestInit & { timeoutMs?: number }
+	init?: RequestInit & { timeoutMs?: number; fetch?: FetchLike }
 ): Promise<AppReleaseManifest> {
 	const timeoutMs = init?.timeoutMs ?? 8000;
+	const doFetch = init?.fetch ?? globalThis.fetch;
 	const controller = new AbortController();
 	const timer = setTimeout(() => controller.abort(), timeoutMs);
 
 	try {
-		const res = await fetch(url, {
-			...init,
+		const res = await doFetch(url, {
 			redirect: 'follow',
 			signal: init?.signal ?? controller.signal,
 			headers: {
