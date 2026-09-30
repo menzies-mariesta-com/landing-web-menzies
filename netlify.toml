@@ -1,0 +1,133 @@
+[build]
+	command = "npm run build"
+	publish = "build"
+
+[build.environment]
+	NODE_VERSION = "22"
+	# Prerendered canonical / OG / sitemap absolute URLs
+	ORIGIN = "https://store.menzies.design"
+
+# Cookie / localStorage locale only: consolidate thin /my and /ja URL duplicates.
+[[redirects]]
+	from = "/my"
+	to = "/"
+	status = 301
+	force = true
+
+[[redirects]]
+	from = "/my/*"
+	to = "/:splat"
+	status = 301
+	force = true
+
+[[redirects]]
+	from = "/ja"
+	to = "/"
+	status = 301
+	force = true
+
+[[redirects]]
+	from = "/ja/*"
+	to = "/:splat"
+	status = 301
+	force = true
+
+# Fingerprinted SvelteKit / Vite assets
+[[headers]]
+	for = "/_app/immutable/*"
+	[headers.values]
+		Cache-Control = "public, max-age=31536000, immutable"
+		X-Content-Type-Options = "nosniff"
+
+# Static brand / icon assets (stable paths; SWR after 1 day)
+[[headers]]
+	for = "/*.svg"
+	[headers.values]
+		Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
+		X-Content-Type-Options = "nosniff"
+
+[[headers]]
+	for = "/*.png"
+	[headers.values]
+		Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
+		X-Content-Type-Options = "nosniff"
+
+[[headers]]
+	for = "/og-default.png"
+	[headers.values]
+		Cache-Control = "public, max-age=604800, stale-while-revalidate=2592000"
+		X-Content-Type-Options = "nosniff"
+
+[[headers]]
+	for = "/favicon.svg"
+	[headers.values]
+		Cache-Control = "public, max-age=604800, stale-while-revalidate=2592000"
+
+[[headers]]
+	for = "/apple-touch-icon.png"
+	[headers.values]
+		Cache-Control = "public, max-age=604800, stale-while-revalidate=2592000"
+
+[[headers]]
+	for = "/site.webmanifest"
+	[headers.values]
+		Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
+
+[[headers]]
+	for = "/robots.txt"
+	[headers.values]
+		Cache-Control = "public, max-age=3600, stale-while-revalidate=86400"
+
+[[headers]]
+	for = "/sitemap.xml"
+	[headers.values]
+		Cache-Control = "public, max-age=3600, stale-while-revalidate=86400"
+		Content-Type = "application/xml; charset=utf-8"
+
+# Prerendered HTML: browsers revalidate; CDN keeps a short fresh copy + SWR
+[[headers]]
+	for = "/*.html"
+	[headers.values]
+		Cache-Control = "public, max-age=0, must-revalidate"
+		Netlify-CDN-Cache-Control = "public, s-maxage=3600, stale-while-revalidate=86400"
+		X-Content-Type-Options = "nosniff"
+		Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+	for = "/"
+	[headers.values]
+		Cache-Control = "public, max-age=0, must-revalidate"
+		Netlify-CDN-Cache-Control = "public, s-maxage=3600, stale-while-revalidate=86400"
+		X-Content-Type-Options = "nosniff"
+		Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+	for = "/plans"
+	[headers.values]
+		Cache-Control = "public, max-age=0, must-revalidate"
+		Netlify-CDN-Cache-Control = "public, s-maxage=3600, stale-while-revalidate=86400"
+
+[[headers]]
+	for = "/apps"
+	[headers.values]
+		Cache-Control = "public, max-age=0, must-revalidate"
+		Netlify-CDN-Cache-Control = "public, s-maxage=3600, stale-while-revalidate=86400"
+
+[[headers]]
+	for = "/library"
+	[headers.values]
+		Cache-Control = "public, max-age=0, must-revalidate"
+		Netlify-CDN-Cache-Control = "public, s-maxage=3600, stale-while-revalidate=86400"
+
+[[headers]]
+	for = "/branding"
+	[headers.values]
+		Cache-Control = "public, max-age=0, must-revalidate"
+		Netlify-CDN-Cache-Control = "public, s-maxage=3600, stale-while-revalidate=86400"
+
+# API release manifests are set in the function handler (short TTL + durable CDN).
+# Do not long-cache /api/* here.
+[[headers]]
+	for = "/api/*"
+	[headers.values]
+		X-Content-Type-Options = "nosniff"
