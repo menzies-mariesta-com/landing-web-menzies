@@ -18,6 +18,10 @@ Thumbs.db
 !.env.example
 !.env.test
 
+# Extension signing private keys (public key JSON is allowed)
+*.ed25519
+extensions/*.key
+
 # Vite
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*

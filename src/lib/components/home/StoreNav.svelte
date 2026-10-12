@@ -17,7 +17,8 @@
 	const navLinks = $derived([
 		{ route: '/(public)/plans' as const, path: '/plans', label: m.nav_plans() },
 		{ route: '/(public)/apps' as const, path: '/apps', label: m.nav_apps() },
-		{ route: '/(public)/library' as const, path: '/library', label: m.nav_library() }
+		{ route: '/(public)/library' as const, path: '/library', label: m.nav_library() },
+		{ route: '/(public)/extensions' as const, path: '/extensions', label: m.nav_extensions() }
 	]);
 
 	const contactHref = `mailto:${CONTACT_EMAIL}`;
@@ -32,9 +33,7 @@
 	}
 </script>
 
-<header
-	class="sticky top-0 z-40 border-b border-ink-border/80 bg-base-100/80 backdrop-blur-sm"
->
+<header class="border-ink-border/80 bg-base-100/80 sticky top-0 z-40 border-b backdrop-blur-sm">
 	<div class="mx-auto flex h-14 max-w-6xl items-center justify-between gap-3 px-3 sm:px-6">
 		<div class="flex min-w-0 items-center gap-1 sm:gap-2">
 			<div class="tooltip tooltip-bottom tooltip-primary lg:hidden" data-tip={m.nav_open_menu()}>
@@ -47,7 +46,7 @@
 						<WashIcon icon={washIcons.menu} class="size-5" />
 					</summary>
 					<ul
-						class="{washRecipes.menu} menu-sm dropdown-content z-50 mt-3 w-52 max-h-[min(70vh,24rem)] max-w-[min(100vw-1rem,13rem)] overflow-x-hidden overflow-y-auto p-2 shadow-[var(--shadow-paper-md)]"
+						class="{washRecipes.menu} menu-sm dropdown-content z-50 mt-3 max-h-[min(70vh,24rem)] w-52 max-w-[min(100vw-1rem,13rem)] overflow-x-hidden overflow-y-auto p-2 shadow-[var(--shadow-paper-md)]"
 					>
 						{#each navLinks as link (link.path)}
 							<li>

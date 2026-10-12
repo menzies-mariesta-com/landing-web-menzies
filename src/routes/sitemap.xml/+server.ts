@@ -11,7 +11,8 @@ export const GET: RequestHandler = ({ url }) => {
 		{ loc: `${origin}/plans`, priority: '0.9', changefreq: 'weekly' },
 		{ loc: `${origin}/apps`, priority: '0.9', changefreq: 'weekly' },
 		{ loc: `${origin}/library`, priority: '0.9', changefreq: 'weekly' },
-		{ loc: `${origin}/branding`, priority: '0.7', changefreq: 'monthly' }
+		{ loc: `${origin}/branding`, priority: '0.7', changefreq: 'monthly' },
+		{ loc: `${origin}/extensions`, priority: '0.8', changefreq: 'weekly' }
 	];
 
 	const body = `<?xml version="1.0" encoding="UTF-8"?>
