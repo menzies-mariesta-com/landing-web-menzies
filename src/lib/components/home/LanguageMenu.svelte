@@ -16,14 +16,24 @@
 	const LOCALE_LABELS: Record<Locale, string> = {
 		en: 'English',
 		my: 'မြန်မာ',
-		ja: '日本語'
+		ja: '日本語',
+		'zh-tw': '繁體中文（台灣）',
+		ko: '한국어',
+		fr: 'Français',
+		pt: 'Português',
+		es: 'Español'
 	};
 
 	/** Regional flags (emoji). English uses US consistently. */
 	const LOCALE_FLAGS: Record<Locale, string> = {
 		en: '🇺🇸',
 		my: '🇲🇲',
-		ja: '🇯🇵'
+		ja: '🇯🇵',
+		'zh-tw': '🇹🇼',
+		ko: '🇰🇷',
+		fr: '🇫🇷',
+		pt: '🇵🇹',
+		es: '🇪🇸'
 	};
 
 	function readLocale(): Locale {

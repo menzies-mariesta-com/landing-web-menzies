@@ -1,7 +1,7 @@
 {
 	"schema": "menzies-extension-registry/1",
-	"sequence": 3,
-	"issuedAt": "2026-10-12T08:44:19Z",
+	"sequence": 5,
+	"issuedAt": "2026-10-12T10:00:53Z",
 	"keyId": "menzies-extensions-ed25519-1",
 	"revoked": [],
 	"extensions": [
@@ -9,7 +9,7 @@
 			"id": "face-recognition",
 			"appId": "gallery-desktop-menzies",
 			"name": "Face recognition",
-			"summary": "Optional Gallery add-on. Detects faces and groups them on this computer. Photos are not uploaded. Updates stay manual until you choose automatic.",
+			"summary": "Offline Gallery add-on. Detects and groups faces on your computer. Updates stay manual until you choose automatic.",
 			"availability": "available",
 			"defaultUpdateMode": "manual",
 			"platforms": ["linux"],

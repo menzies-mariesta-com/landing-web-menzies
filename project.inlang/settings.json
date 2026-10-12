@@ -11,6 +11,11 @@
 	"locales": [
 		"en",
 		"my",
-		"ja"
+		"ja",
+		"zh-tw",
+		"ko",
+		"fr",
+		"pt",
+		"es"
 	]
 }

@@ -6,6 +6,7 @@
 	import AppsSection from '$lib/components/home/AppsSection.svelte';
 	import PlansSection from '$lib/components/home/PlansSection.svelte';
 	import LibrarySection from '$lib/components/home/LibrarySection.svelte';
+	import ExtensionsSection from '$lib/components/home/ExtensionsSection.svelte';
 	import StoreFooter from '$lib/components/home/StoreFooter.svelte';
 	import {
 		SITE_NAME,
@@ -16,7 +17,7 @@
 		websiteJsonLd
 	} from '$lib/util/seo';
 
-	const homeDescription = `Menzies Store: ${SITE_TAGLINE}. Discover web service plans (Medora, Loomline, Lumi Studio), desktop apps, and design libraries in one quiet catalog.`;
+	const homeDescription = `Menzies Store: ${SITE_TAGLINE}. Discover web service plans (Medora, Loomline, Lumi Studio), desktop apps, design libraries, and signed extensions in one quiet catalog.`;
 
 	const seo = $derived(
 		buildSeo({
@@ -48,6 +49,7 @@
 		<PlansSection />
 		<AppsSection />
 		<LibrarySection />
+		<ExtensionsSection />
 	</main>
 	<StoreFooter />
 </div>

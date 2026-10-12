@@ -38,7 +38,47 @@ export type MenziesLibraryItem = {
 	secondaryCtaHref?: string;
 };
 
+export type MenziesExtension = {
+	id: string;
+	name: string;
+	kind: string;
+	tagline: string;
+	version?: string;
+	/** Public URL under `/static` (served from site root). */
+	logoSrc: string;
+	ctaLabel: string;
+	ctaHref: string;
+	secondaryCtaLabel?: string;
+	secondaryCtaHref?: string;
+};
+
 export const MENZIES_APPS: MenziesApp[] = [
+	{
+		id: 'portal',
+		name: 'Portal',
+		kind: 'Desktop',
+		tagline: 'OpenVPN client with Wash UI for the Menzies desktop suite.',
+		description:
+			'Linux-first OpenVPN client for Menzies OS. Import .ovpn files or folders, connect with a simple Wash UI, and keep OpenVPN bundled inside the app. Updates ship through GitHub Releases.',
+		accent: 'accent',
+		iconSrc: '/portal-app-icon.svg',
+		githubUrl: 'https://github.com/menzies-mariesta-com/portal-desktop-menzies',
+		latestJsonUrl:
+			'https://github.com/menzies-mariesta-com/portal-desktop-menzies/releases/latest/download/latest.json'
+	},
+	{
+		id: 'dbms',
+		name: 'Database Manager',
+		kind: 'Desktop',
+		tagline: 'Multi-engine database IDE for the Menzies desktop suite.',
+		description:
+			'Linux-first database manager for PostgreSQL, MySQL, MariaDB, SQL Server, SQLite, and MongoDB. Connections with groups and keyring passwords, schema navigator, query consoles, editable grids, and Wash UI chrome. Updates ship through GitHub Releases.',
+		accent: 'success',
+		iconSrc: '/dbms-app-icon.svg',
+		githubUrl: 'https://github.com/menzies-mariesta-com/dbms-desktop-menzies',
+		latestJsonUrl:
+			'https://github.com/menzies-mariesta-com/dbms-desktop-menzies/releases/latest/download/latest.json'
+	},
 	{
 		id: 'calculator',
 		name: 'Calculator',
@@ -77,19 +117,6 @@ export const MENZIES_APPS: MenziesApp[] = [
 		githubUrl: 'https://github.com/menzies-mariesta-com/notepad-desktop-menzies',
 		latestJsonUrl:
 			'https://github.com/menzies-mariesta-com/notepad-desktop-menzies/releases/latest/download/latest.json'
-	},
-	{
-		id: 'portal',
-		name: 'Portal',
-		kind: 'Desktop',
-		tagline: 'OpenVPN client with Wash UI for the Menzies desktop suite.',
-		description:
-			'Linux-first OpenVPN client for Menzies OS. Import .ovpn files or folders, connect with a simple Wash UI, and keep OpenVPN bundled inside the app. Updates ship through GitHub Releases.',
-		accent: 'accent',
-		iconSrc: '/portal-app-icon.svg',
-		githubUrl: 'https://github.com/menzies-mariesta-com/portal-desktop-menzies',
-		latestJsonUrl:
-			'https://github.com/menzies-mariesta-com/portal-desktop-menzies/releases/latest/download/latest.json'
 	}
 ];
 
@@ -138,5 +165,22 @@ export const MENZIES_LIBRARY: MenziesLibraryItem[] = [
 		ctaHref: 'https://design-menzies.netlify.app',
 		secondaryCtaLabel: 'GitHub',
 		secondaryCtaHref: 'https://github.com/menzies-mariesta-com/design-lib-menzies'
+	}
+];
+
+/** Signed desktop extension packages (home + catalog). */
+export const MENZIES_EXTENSIONS: MenziesExtension[] = [
+	{
+		id: 'face-recognition',
+		name: 'Face recognition',
+		kind: 'Gallery extension',
+		tagline: 'Offline Gallery add-on. Detects and groups faces on your computer.',
+		version: '1.0.0',
+		logoSrc: '/extensions-logo.svg',
+		ctaLabel: 'Download',
+		ctaHref:
+			'/extensions/packages/gallery-desktop-menzies/face-recognition/1.0.0/linux-x86_64.zip',
+		secondaryCtaLabel: 'Registry',
+		secondaryCtaHref: '/extensions/registry.json'
 	}
 ];

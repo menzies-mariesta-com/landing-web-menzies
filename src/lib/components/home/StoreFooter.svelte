@@ -34,13 +34,13 @@
 					>
 				</li>
 				<li>
-					<a href="/branding" class="text-ink-muted hover:text-primary cursor-pointer text-sm"
-						>{m.nav_branding()}</a
+					<a href="/extensions" class="text-ink-muted hover:text-primary cursor-pointer text-sm"
+						>{m.nav_extensions()}</a
 					>
 				</li>
 				<li>
-					<a href="/extensions" class="text-ink-muted hover:text-primary cursor-pointer text-sm"
-						>{m.nav_extensions()}</a
+					<a href="/branding" class="text-ink-muted hover:text-primary cursor-pointer text-sm"
+						>{m.nav_branding()}</a
 					>
 				</li>
 			</ul>
@@ -53,6 +53,16 @@
 					<a
 						href="/library#library-wash-ui"
 						class="text-ink-muted hover:text-primary cursor-pointer text-sm">Wash UI</a
+					>
+				</li>
+			</ul>
+			<p class="text-base-content mt-6 text-sm font-medium">{m.nav_extensions()}</p>
+			<ul class="mt-3 space-y-2">
+				<li>
+					<a
+						href="/extensions#extension-face-recognition"
+						class="text-ink-muted hover:text-primary cursor-pointer text-sm"
+						>{m.extensions_face_title()}</a
 					>
 				</li>
 			</ul>

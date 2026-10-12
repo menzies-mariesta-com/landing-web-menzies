@@ -1,17 +1,32 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import CatalogSearch from '$lib/components/catalog/CatalogSearch.svelte';
 	import SeoHead from '$lib/components/seo/SeoHead.svelte';
 	import StoreFooter from '$lib/components/home/StoreFooter.svelte';
 	import StoreNav from '$lib/components/home/StoreNav.svelte';
+	import { MENZIES_EXTENSIONS } from '$lib/tool/store-catalog';
 	import { m } from '$lib/paraglide/messages';
 	import {
-		EXTENSION_KEY_ID,
-		PUBLISHER_KEY_PATH,
-		REGISTRY_PATH
-	} from '$lib/tool/extension-registry';
-	import { breadcrumbJsonLd, buildSeo, webPageJsonLd } from '$lib/util/seo';
+		breadcrumbJsonLd,
+		buildSeo,
+		collectionPageJsonLd
+	} from '$lib/util/seo';
 
-	let { data } = $props();
+	let query = $state('');
+
+	const filtered = $derived.by(() => {
+		const q = query.trim().toLowerCase();
+		if (!q) return MENZIES_EXTENSIONS;
+		return MENZIES_EXTENSIONS.filter((item) => {
+			const hay = `${item.name} ${item.kind} ${item.tagline}`.toLowerCase();
+			return hay.includes(q);
+		});
+	});
+
+	function extensionTagline(id: string, fallback: string): string {
+		if (id === 'face-recognition') return m.extensions_face_tagline();
+		return fallback;
+	}
 
 	const seo = $derived(
 		buildSeo({
@@ -21,8 +36,8 @@
 			url: page.url,
 			type: 'website',
 			jsonLd: [
-				webPageJsonLd({
-					name: m.extensions_title(),
+				collectionPageJsonLd({
+					name: m.extensions_page_title(),
 					description: m.extensions_seo_description(),
 					path: '/extensions',
 					url: page.url
@@ -30,7 +45,7 @@
 				breadcrumbJsonLd(
 					[
 						{ name: 'Home', path: '/' },
-						{ name: m.extensions_title(), path: '/extensions' }
+						{ name: m.extensions_page_title(), path: '/extensions' }
 					],
 					page.url
 				)
@@ -44,162 +59,78 @@
 <div class="store-extensions">
 	<StoreNav />
 	<main class="px-4 py-12 sm:px-6 sm:py-16">
-		<div class="mx-auto max-w-3xl">
-			<p class="font-display text-primary text-sm font-medium tracking-wide">{m.brand_menzies()}</p>
-			<h1
-				class="font-display text-base-content mt-2 text-4xl font-semibold tracking-tight sm:text-5xl"
+		<div class="mx-auto max-w-6xl">
+			<div
+				class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6"
 			>
-				{m.extensions_title()}
-			</h1>
-			<p class="text-ink-muted mt-4 text-base leading-relaxed sm:text-lg">{m.extensions_intro()}</p>
+				<h1 class="font-display shrink-0 text-3xl font-semibold tracking-tight text-primary sm:text-4xl">
+					{m.extensions_page_title()}
+				</h1>
+				<div class="flex w-full sm:max-w-md sm:flex-1 sm:justify-end md:max-w-xl">
+					<CatalogSearch
+						bind:value={query}
+						placeholder={m.catalog_search_placeholder()}
+						label={m.catalog_search_label()}
+					/>
+				</div>
+			</div>
+
+			{#if filtered.length === 0}
+				<p class="mt-8 text-sm text-ink-muted" role="status">{m.catalog_search_empty()}</p>
+			{:else}
+				<ul class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+					{#each filtered as item (item.id)}
+						<li
+							id={`extension-${item.id}`}
+							class="flex h-full scroll-mt-24 flex-col rounded-box border border-ink-border/70 p-6 sm:p-8"
+						>
+							<img
+								src={item.logoSrc}
+								alt={`${item.name} logo`}
+								width="48"
+								height="48"
+								class="size-12 shrink-0 rounded-box object-contain"
+								decoding="async"
+								loading="lazy"
+							/>
+							<p class="mt-4 text-sm text-ink-muted">{item.kind}</p>
+							<h2 class="font-display mt-1 text-xl font-semibold tracking-tight">
+								{item.name}
+							</h2>
+							{#if item.version}
+								<p class="mt-1 text-xs text-ink-muted">v{item.version}</p>
+							{/if}
+							<p class="mt-2 flex-1 text-sm leading-relaxed text-ink-muted">
+								{extensionTagline(item.id, item.tagline)}
+							</p>
+							<div class="mt-6 flex flex-wrap gap-2">
+								<a
+									href={item.ctaHref}
+									download={item.ctaHref.endsWith('.zip') || undefined}
+									target={item.ctaHref.startsWith('http') ? '_blank' : undefined}
+									rel={item.ctaHref.startsWith('http') ? 'noopener noreferrer' : undefined}
+									class="btn btn-primary cursor-pointer"
+								>
+									{item.ctaLabel}
+								</a>
+								{#if item.secondaryCtaHref && item.secondaryCtaLabel}
+									<a
+										href={item.secondaryCtaHref}
+										target={item.secondaryCtaHref.startsWith('http') ? '_blank' : undefined}
+										rel={item.secondaryCtaHref.startsWith('http')
+											? 'noopener noreferrer'
+											: undefined}
+										class="btn btn-ghost cursor-pointer"
+									>
+										{item.secondaryCtaLabel}
+									</a>
+								{/if}
+							</div>
+						</li>
+					{/each}
+				</ul>
+			{/if}
 		</div>
-
-		<section class="mx-auto mt-14 max-w-3xl" aria-labelledby="extensions-privacy">
-			<h2
-				id="extensions-privacy"
-				class="font-display text-primary text-2xl font-semibold tracking-tight sm:text-3xl"
-			>
-				{m.extensions_privacy_title()}
-			</h2>
-			<p class="text-ink-muted mt-3 text-sm leading-relaxed sm:text-base">
-				{m.extensions_privacy_body()}
-			</p>
-		</section>
-
-		<section class="mx-auto mt-12 max-w-3xl" aria-labelledby="extensions-offline">
-			<h2
-				id="extensions-offline"
-				class="font-display text-primary text-2xl font-semibold tracking-tight sm:text-3xl"
-			>
-				{m.extensions_offline_title()}
-			</h2>
-			<p class="text-ink-muted mt-3 text-sm leading-relaxed sm:text-base">
-				{m.extensions_offline_body()}
-			</p>
-		</section>
-
-		<section class="mx-auto mt-12 max-w-3xl" aria-labelledby="extensions-updates">
-			<h2
-				id="extensions-updates"
-				class="font-display text-primary text-2xl font-semibold tracking-tight sm:text-3xl"
-			>
-				{m.extensions_updates_title()}
-			</h2>
-			<p class="text-ink-muted mt-3 text-sm leading-relaxed sm:text-base">
-				{m.extensions_updates_body()}
-			</p>
-		</section>
-
-		<section class="mx-auto mt-12 max-w-3xl" aria-labelledby="extensions-platforms">
-			<h2
-				id="extensions-platforms"
-				class="font-display text-primary text-2xl font-semibold tracking-tight sm:text-3xl"
-			>
-				{m.extensions_platforms_title()}
-			</h2>
-			<p class="text-ink-muted mt-3 text-sm leading-relaxed sm:text-base">
-				{m.extensions_platforms_body()}
-			</p>
-		</section>
-
-		<section class="mx-auto mt-12 max-w-3xl" aria-labelledby="extensions-install">
-			<h2
-				id="extensions-install"
-				class="font-display text-primary text-2xl font-semibold tracking-tight sm:text-3xl"
-			>
-				{m.extensions_install_title()}
-			</h2>
-			<p class="text-ink-muted mt-3 text-sm leading-relaxed sm:text-base">
-				{m.extensions_install_body()}
-			</p>
-		</section>
-
-		<section class="mx-auto mt-12 max-w-3xl" aria-labelledby="extensions-face">
-			<h2
-				id="extensions-face"
-				class="font-display text-primary text-2xl font-semibold tracking-tight sm:text-3xl"
-			>
-				{m.extensions_face_title()}
-			</h2>
-			<p class="text-ink-muted mt-3 text-sm leading-relaxed sm:text-base">
-				{m.extensions_face_body({
-					version: data.faceVersion,
-					target: data.faceTarget,
-					size: data.faceSize
-				})}
-			</p>
-			<dl class="mt-4 grid gap-2 text-sm sm:grid-cols-3">
-				<div>
-					<dt class="text-base-content font-medium">{m.extensions_face_title()}</dt>
-					<dd class="text-ink-muted font-mono">{data.faceVersion}</dd>
-				</div>
-				<div>
-					<dt class="text-base-content font-medium">{m.extensions_platforms_title()}</dt>
-					<dd class="text-ink-muted font-mono">{data.faceTarget}</dd>
-				</div>
-				<div>
-					<dt class="text-base-content font-medium">{m.extensions_download_label()}</dt>
-					<dd class="text-ink-muted font-mono">{data.faceSize}</dd>
-				</div>
-			</dl>
-		</section>
-
-		<section class="mx-auto mt-12 max-w-3xl" aria-labelledby="extensions-models">
-			<h2
-				id="extensions-models"
-				class="font-display text-primary text-2xl font-semibold tracking-tight sm:text-3xl"
-			>
-				{m.extensions_models_title()}
-			</h2>
-			<p class="text-ink-muted mt-3 text-sm leading-relaxed sm:text-base">
-				{m.extensions_models_body()}
-			</p>
-		</section>
-
-		<section class="mx-auto mt-12 max-w-3xl" aria-labelledby="extensions-registry">
-			<h2
-				id="extensions-registry"
-				class="font-display text-primary text-2xl font-semibold tracking-tight sm:text-3xl"
-			>
-				{m.extensions_registry_title()}
-			</h2>
-			<p class="text-ink-muted mt-3 text-sm leading-relaxed sm:text-base">
-				{m.extensions_registry_body({ keyId: EXTENSION_KEY_ID })}
-			</p>
-			<p class="text-ink-muted mt-3 text-sm leading-relaxed">{m.extensions_catalog_address()}</p>
-			<ul class="mt-4 space-y-2 text-sm">
-				<li>
-					<a
-						href="https://menzies.mariesta.com/extensions/registry.json"
-						class="text-primary cursor-pointer font-mono underline-offset-2 hover:underline"
-						>https://menzies.mariesta.com/extensions/registry.json</a
-					>
-				</li>
-				<li>
-					<a
-						href="https://menzies.mariesta.com/extensions/publisher-key.json"
-						class="text-primary cursor-pointer font-mono underline-offset-2 hover:underline"
-						>https://menzies.mariesta.com/extensions/publisher-key.json</a
-					>
-				</li>
-			</ul>
-			<ul class="mt-4 space-y-2 text-sm">
-				<li>
-					<a
-						href={REGISTRY_PATH}
-						class="text-primary cursor-pointer underline-offset-2 hover:underline"
-						>{m.extensions_registry_link()}</a
-					>
-				</li>
-				<li>
-					<a
-						href={PUBLISHER_KEY_PATH}
-						class="text-primary cursor-pointer underline-offset-2 hover:underline"
-						>{m.extensions_key_link()}</a
-					>
-				</li>
-			</ul>
-		</section>
 	</main>
 	<StoreFooter />
 </div>
