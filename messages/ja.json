@@ -28,7 +28,7 @@
 	"plans_seo_description": "Medora、Loomline、Lumi Studio など Menzies のウェブサービスプランを一覧で比較し、ストアのカタログから各プロダクトへ進めます。",
 	"apps_page_title": "アプリ",
 	"apps_seo_title": "ダウンロードできるデスクトップアプリ",
-	"apps_seo_description": "Linux / macOS / Windows 向けの Menzies デスクトップアプリをダウンロード。Portal、Database Manager、Calculator、Gallery、Notepad などをストアから探せます。",
+	"apps_seo_description": "Linux / macOS / Windows 向けの Menzies デスクトップアプリをダウンロード。Portal、Database Manager、Keycraft、Calculator、Gallery、Notepad などをストアから探せます。",
 	"library_page_title": "ライブラリ",
 	"library_seo_title": "Wash UI デザインライブラリ",
 	"library_seo_description": "Menzies 製品向け Wash UI デザインライブラリを探索。ギャラリー、ドキュメント、ブランドに沿った UI ツールをストアのライブラリから開けます。",
@@ -85,8 +85,12 @@
 	"error_fallback_title": "予期しないエラー",
 	"error_fallback_blurb": "想定どおりに進みませんでした。ホームへ戻るか、既知のページから続けてください。",
 	"extensions_page_title": "拡張機能",
-	"extensions_seo_title": "デスクトップ拡張機能：顔認識ほか",
-	"extensions_seo_description": "Gallery向けのオフライン顔認識を含む、署名済みMenziesデスクトップ拡張機能を閲覧。カタログからインストールし、更新は手動のまま、写真は手元のパソコンに残します。",
+	"extensions_seo_title": "デスクトップ拡張機能：顔認識とDBMSドライバ",
+	"extensions_seo_description": "Gallery向けオフライン顔認識と、Database Manager向けPostgreSQL・MySQL・SQL Server・MongoDBドライバを含む署名済みMenziesデスクトップ拡張機能を閲覧。カタログからインストールし、更新は手動のままにできます。",
 	"extensions_face_title": "顔認識",
-	"extensions_face_tagline": "Gallery 向けオフライン拡張。顔の検出とグループ化をこのコンピュータで行います。"
+	"extensions_face_tagline": "Gallery 向けオフライン拡張。顔の検出とグループ化をこのコンピュータで行います。",
+	"extensions_driver_postgres_tagline": "Database Manager を PostgreSQL に接続する署名済みサイドカー。",
+	"extensions_driver_mysql_tagline": "Database Manager を MySQL と MariaDB に接続する署名済みサイドカー。",
+	"extensions_driver_mssql_tagline": "Database Manager を SQL Server に接続する署名済みサイドカー。",
+	"extensions_driver_mongodb_tagline": "Database Manager を MongoDB に接続する署名済みサイドカー。"
 }

@@ -28,7 +28,7 @@
 	"plans_seo_description": "Explore os planos de serviços web da Menzies, incluindo Medora, Loomline e Lumi Studio. Compare as ofertas e abra cada produto a partir do catálogo da loja.",
 	"apps_page_title": "Apps",
 	"apps_seo_title": "Apps de secretária para descarregar",
-	"apps_seo_description": "Descarregue apps de secretária Menzies para Linux, macOS e Windows. Explore Portal, Database Manager, Calculator, Gallery, Notepad e mais, com ligações de lançamento da loja.",
+	"apps_seo_description": "Descarregue apps de secretária Menzies para Linux, macOS e Windows. Explore Portal, Database Manager, Keycraft, Calculator, Gallery, Notepad e mais, com ligações de lançamento da loja.",
 	"library_page_title": "Biblioteca",
 	"library_seo_title": "Biblioteca de design Wash UI",
 	"library_seo_description": "Explore a biblioteca de design Wash UI para produtos Menzies. Abra a galeria, a documentação e as ferramentas de UI alinhadas com a marca a partir do catálogo da biblioteca da loja.",
@@ -85,8 +85,12 @@
 	"error_fallback_title": "Erro inesperado",
 	"error_fallback_blurb": "Algo não correu como planeado. Volte ao início, ou continue a partir de uma página conhecida.",
 	"extensions_page_title": "Extensões",
-	"extensions_seo_title": "Extensões de secretária: reconhecimento facial e mais",
-	"extensions_seo_description": "Explore extensões de secretária Menzies assinadas, incluindo reconhecimento facial offline para Gallery. Instale a partir do catálogo, mantenha atualizações manuais e deixe as fotos no seu computador.",
+	"extensions_seo_title": "Extensões de secretária: reconhecimento facial e controladores DBMS",
+	"extensions_seo_description": "Explore extensões de secretária Menzies assinadas, incluindo reconhecimento facial offline para Gallery e controladores do Database Manager para PostgreSQL, MySQL, SQL Server e MongoDB. Instale a partir do catálogo e mantenha atualizações manuais.",
 	"extensions_face_title": "Reconhecimento facial",
-	"extensions_face_tagline": "Complemento offline do Gallery. Deteta e agrupa rostos no seu computador."
+	"extensions_face_tagline": "Complemento offline do Gallery. Deteta e agrupa rostos no seu computador.",
+	"extensions_driver_postgres_tagline": "Sidecar assinado que liga o Database Manager ao PostgreSQL.",
+	"extensions_driver_mysql_tagline": "Sidecar assinado que liga o Database Manager ao MySQL e MariaDB.",
+	"extensions_driver_mssql_tagline": "Sidecar assinado que liga o Database Manager ao SQL Server.",
+	"extensions_driver_mongodb_tagline": "Sidecar assinado que liga o Database Manager ao MongoDB."
 }

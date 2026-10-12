@@ -28,7 +28,7 @@
 	"plans_seo_description": "Parcourez les offres de services web Menzies, dont Medora, Loomline et Lumi Studio. Comparez les propositions et ouvrez chaque produit depuis le catalogue du store.",
 	"apps_page_title": "Apps",
 	"apps_seo_title": "Apps de bureau à télécharger",
-	"apps_seo_description": "Téléchargez les apps de bureau Menzies pour Linux, macOS et Windows. Parcourez Portal, Database Manager, Calculator, Gallery, Notepad et plus, avec les liens de publication du store.",
+	"apps_seo_description": "Téléchargez les apps de bureau Menzies pour Linux, macOS et Windows. Parcourez Portal, Database Manager, Keycraft, Calculator, Gallery, Notepad et plus, avec les liens de publication du store.",
 	"library_page_title": "Bibliothèque",
 	"library_seo_title": "Bibliothèque de design Wash UI",
 	"library_seo_description": "Explorez la bibliothèque de design Wash UI pour les produits Menzies. Ouvrez la galerie, la documentation et les outils d’interface alignés sur la marque depuis le catalogue bibliothèque du store.",
@@ -85,8 +85,12 @@
 	"error_fallback_title": "Erreur inattendue",
 	"error_fallback_blurb": "Quelque chose ne s’est pas passé comme prévu. Revenez à l’accueil, ou continuez depuis une page connue.",
 	"extensions_page_title": "Extensions",
-	"extensions_seo_title": "Extensions de bureau : reconnaissance faciale et plus",
-	"extensions_seo_description": "Parcourez les extensions de bureau Menzies signées, dont la reconnaissance faciale hors ligne pour Gallery. Installez depuis le catalogue, gardez les mises à jour manuelles, et laissez les photos sur votre ordinateur.",
+	"extensions_seo_title": "Extensions de bureau : reconnaissance faciale et pilotes DBMS",
+	"extensions_seo_description": "Parcourez les extensions de bureau Menzies signées, dont la reconnaissance faciale hors ligne pour Gallery et les pilotes Database Manager pour PostgreSQL, MySQL, SQL Server et MongoDB. Installez depuis le catalogue et gardez les mises à jour manuelles.",
 	"extensions_face_title": "Reconnaissance faciale",
-	"extensions_face_tagline": "Module hors ligne pour Gallery. Détecte et regroupe les visages sur votre ordinateur."
+	"extensions_face_tagline": "Module hors ligne pour Gallery. Détecte et regroupe les visages sur votre ordinateur.",
+	"extensions_driver_postgres_tagline": "Sidecar signé qui connecte Database Manager à PostgreSQL.",
+	"extensions_driver_mysql_tagline": "Sidecar signé qui connecte Database Manager à MySQL et MariaDB.",
+	"extensions_driver_mssql_tagline": "Sidecar signé qui connecte Database Manager à SQL Server.",
+	"extensions_driver_mongodb_tagline": "Sidecar signé qui connecte Database Manager à MongoDB."
 }

@@ -24,8 +24,20 @@
 	});
 
 	function extensionTagline(id: string, fallback: string): string {
-		if (id === 'face-recognition') return m.extensions_face_tagline();
-		return fallback;
+		switch (id) {
+			case 'face-recognition':
+				return m.extensions_face_tagline();
+			case 'driver-postgres':
+				return m.extensions_driver_postgres_tagline();
+			case 'driver-mysql':
+				return m.extensions_driver_mysql_tagline();
+			case 'driver-mssql':
+				return m.extensions_driver_mssql_tagline();
+			case 'driver-mongodb':
+				return m.extensions_driver_mongodb_tagline();
+			default:
+				return fallback;
+		}
 	}
 
 	const seo = $derived(

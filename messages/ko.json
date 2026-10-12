@@ -28,7 +28,7 @@
 	"plans_seo_description": "Medora, Loomline, Lumi Studio를 포함한 Menzies 웹 서비스 플랜을 살펴보세요. 제공 내용을 비교하고 스토어 카탈로그에서 각 제품을 여세요.",
 	"apps_page_title": "앱",
 	"apps_seo_title": "다운로드할 데스크톱 앱",
-	"apps_seo_description": "Linux, macOS, Windows용 Menzies 데스크톱 앱을 다운로드하세요. Portal, Database Manager, Calculator, Gallery, Notepad 등을 스토어 릴리스 링크와 함께 둘러보세요.",
+	"apps_seo_description": "Linux, macOS, Windows용 Menzies 데스크톱 앱을 다운로드하세요. Portal, Database Manager, Keycraft, Calculator, Gallery, Notepad 등을 스토어 릴리스 링크와 함께 둘러보세요.",
 	"library_page_title": "라이브러리",
 	"library_seo_title": "Wash UI 디자인 라이브러리",
 	"library_seo_description": "Menzies 제품을 위한 Wash UI 디자인 라이브러리를 살펴보세요. 스토어 라이브러리 카탈로그에서 갤러리, 문서, 브랜드에 맞는 UI 도구를 여세요.",
@@ -85,8 +85,12 @@
 	"error_fallback_title": "예상치 못한 오류",
 	"error_fallback_blurb": "계획이 어긋났습니다. 홈으로 돌아가거나 알려진 페이지에서 계속하세요.",
 	"extensions_page_title": "확장 기능",
-	"extensions_seo_title": "데스크톱 확장 기능: 얼굴 인식 외",
-	"extensions_seo_description": "Gallery용 오프라인 얼굴 인식을 포함한 서명된 Menzies 데스크톱 확장 기능을 둘러보세요. 카탈로그에서 설치하고 업데이트는 수동으로 두며 사진은 컴퓨터에 남겨 두세요.",
+	"extensions_seo_title": "데스크톱 확장 기능: 얼굴 인식과 DBMS 드라이버",
+	"extensions_seo_description": "Gallery용 오프라인 얼굴 인식과 Database Manager용 PostgreSQL, MySQL, SQL Server, MongoDB 드라이버를 포함한 서명된 Menzies 데스크톱 확장 기능을 둘러보세요. 카탈로그에서 설치하고 업데이트는 수동으로 두세요.",
 	"extensions_face_title": "얼굴 인식",
-	"extensions_face_tagline": "오프라인 Gallery 추가 기능. 컴퓨터에서 얼굴을 감지하고 그룹화합니다."
+	"extensions_face_tagline": "오프라인 Gallery 추가 기능. 컴퓨터에서 얼굴을 감지하고 그룹화합니다.",
+	"extensions_driver_postgres_tagline": "Database Manager를 PostgreSQL에 연결하는 서명된 사이드카.",
+	"extensions_driver_mysql_tagline": "Database Manager를 MySQL 및 MariaDB에 연결하는 서명된 사이드카.",
+	"extensions_driver_mssql_tagline": "Database Manager를 SQL Server에 연결하는 서명된 사이드카.",
+	"extensions_driver_mongodb_tagline": "Database Manager를 MongoDB에 연결하는 서명된 사이드카."
 }

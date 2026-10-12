@@ -28,7 +28,7 @@
 	"plans_seo_description": "Medora, Loomline, Lumi Studio အပါအဝင် Menzies ဝဘ်ဝန်ဆောင်မှုအစီအစဉ်များကို ကြည့်ရှုပြီး စတိုးကတ်တလောက်မှ ထုတ်ကုန်တစ်ခုချင်းစီကို ဖွင့်ပါ။",
 	"apps_page_title": "အက်ပ်များ",
 	"apps_seo_title": "ဒေါင်းလုဒ်လုပ်နိုင်သော ဒက်စ်တော့အက်ပ်များ",
-	"apps_seo_description": "Linux, macOS, Windows အတွက် Menzies ဒက်စ်တော့အက်ပ်များကို ဒေါင်းလုဒ်လုပ်ပါ။ Portal, Database Manager, Calculator, Gallery, Notepad နှင့် အခြားကို စတိုးမှ ရယူပါ။",
+	"apps_seo_description": "Linux, macOS, Windows အတွက် Menzies ဒက်စ်တော့အက်ပ်များကို ဒေါင်းလုဒ်လုပ်ပါ။ Portal, Database Manager, Keycraft, Calculator, Gallery, Notepad နှင့် အခြားကို စတိုးမှ ရယူပါ။",
 	"library_page_title": "စာကြည့်တိုက်",
 	"library_seo_title": "Wash UI ဒီဇိုင်းစာကြည့်တိုက်",
 	"library_seo_description": "Menzies ထုတ်ကုန်များအတွက် Wash UI ဒီဇိုင်းစာကြည့်တိုက်ကို ရှာဖွေပါ။ ဂယ်လရီ၊ စာရွက်စာတမ်းများနှင့် UI ကိရိယာများကို စတိုးစာကြည့်တိုက်မှ ဖွင့်ပါ။",
@@ -85,8 +85,12 @@
 	"error_fallback_title": "မမျှော်လင့်သော အမှား",
 	"error_fallback_blurb": "စီစဉ်ထားသည့်အတိုင်း မဖြစ်ခဲ့ပါ။ ပင်မစာမျက်နှာသို့ ပြန်သွားပါ သို့မဟုတ် သိပြီးသော စာမျက်နှာမှ ဆက်လုပ်ပါ။",
 	"extensions_page_title": "တိုးချဲ့မှုများ",
-	"extensions_seo_title": "ဒက်စ်တော့ တိုးချဲ့မှုများ: မျက်နှာအသိအမှတ်ပြုမှုနှင့် အခြား",
-	"extensions_seo_description": "Gallery အတွက် Offline မျက်နှာအသိအမှတ်ပြုမှုအပါအဝင် လက်မှတ်ထိုးထားသော Menzies ဒက်စ်တော့ တိုးချဲ့မှုများကို ကြည့်ပါ။ ကတ်တလောက်မှ ထည့်သွင်းပြီး ဓာတ်ပုံများကို ကွန်ပျူတာပေါ်တွင်သာ ထားပါ။",
+	"extensions_seo_title": "ဒက်စ်တော့ တိုးချဲ့မှုများ: မျက်နှာအသိအမှတ်ပြုမှုနှင့် DBMS ဒရိုင်ဗာများ",
+	"extensions_seo_description": "Gallery အတွက် Offline မျက်နှာအသိအမှတ်ပြုမှုနှင့် Database Manager အတွက် PostgreSQL, MySQL, SQL Server, MongoDB ဒရိုင်ဗာများအပါအဝင် လက်မှတ်ထိုးထားသော Menzies ဒက်စ်တော့ တိုးချဲ့မှုများကို ကြည့်ပါ။ ကတ်တလောက်မှ ထည့်သွင်းပြီး အပ်ဒိတ်များကို လက်ဖြင့်သာ ထားပါ။",
 	"extensions_face_title": "မျက်နှာမှတ်သားမှု",
-	"extensions_face_tagline": "Gallery အတွက် အော့ဖ်လိုင်း တိုးချဲ့မှု။ မျက်နှာများကို သင့်ကွန်ပျူတာပေါ်တွင် ရှာဖွေပြီး အုပ်စုဖွဲ့သည်။"
+	"extensions_face_tagline": "Gallery အတွက် အော့ဖ်လိုင်း တိုးချဲ့မှု။ မျက်နှာများကို သင့်ကွန်ပျူတာပေါ်တွင် ရှာဖွေပြီး အုပ်စုဖွဲ့သည်။",
+	"extensions_driver_postgres_tagline": "Database Manager ကို PostgreSQL နှင့် ချိတ်ဆက်ပေးသော လက်မှတ်ထိုး sidecar။",
+	"extensions_driver_mysql_tagline": "Database Manager ကို MySQL နှင့် MariaDB နှင့် ချိတ်ဆက်ပေးသော လက်မှတ်ထိုး sidecar။",
+	"extensions_driver_mssql_tagline": "Database Manager ကို SQL Server နှင့် ချိတ်ဆက်ပေးသော လက်မှတ်ထိုး sidecar။",
+	"extensions_driver_mongodb_tagline": "Database Manager ကို MongoDB နှင့် ချိတ်ဆက်ပေးသော လက်မှတ်ထိုး sidecar။"
 }

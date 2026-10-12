@@ -80,6 +80,19 @@ export const MENZIES_APPS: MenziesApp[] = [
 			'https://github.com/menzies-mariesta-com/dbms-desktop-menzies/releases/latest/download/latest.json'
 	},
 	{
+		id: 'keycraft',
+		name: 'Keycraft',
+		kind: 'Desktop',
+		tagline: 'Keyboard discovery, remapping, and typing lab for Menzies.',
+		description:
+			'Linux-first keyboard app for device discovery, capability-gated customization, offline firmware import, local keystroke sounds, system remapping, and a typing lab. Updates ship through GitHub Releases.',
+		accent: 'warning',
+		iconSrc: '/keycraft-app-icon.svg',
+		githubUrl: 'https://github.com/menzies-mariesta-com/keycraft-desktop-menzies',
+		latestJsonUrl:
+			'https://github.com/menzies-mariesta-com/keycraft-desktop-menzies/releases/latest/download/latest.json'
+	},
+	{
 		id: 'calculator',
 		name: 'Calculator',
 		kind: 'Desktop',
@@ -180,6 +193,56 @@ export const MENZIES_EXTENSIONS: MenziesExtension[] = [
 		ctaLabel: 'Download',
 		ctaHref:
 			'/extensions/packages/gallery-desktop-menzies/face-recognition/1.0.0/linux-x86_64.zip',
+		secondaryCtaLabel: 'Registry',
+		secondaryCtaHref: '/extensions/registry.json'
+	},
+	{
+		id: 'driver-postgres',
+		name: 'PostgreSQL driver',
+		kind: 'Database Manager extension',
+		tagline: 'Signed sidecar that connects Database Manager to PostgreSQL.',
+		version: '0.1.0',
+		logoSrc: '/extensions-logo.svg',
+		ctaLabel: 'Download',
+		ctaHref:
+			'/extensions/packages/dbms-desktop-menzies/driver-postgres/0.1.0/linux-x86_64.zip',
+		secondaryCtaLabel: 'Registry',
+		secondaryCtaHref: '/extensions/registry.json'
+	},
+	{
+		id: 'driver-mysql',
+		name: 'MySQL and MariaDB driver',
+		kind: 'Database Manager extension',
+		tagline: 'Signed sidecar that connects Database Manager to MySQL and MariaDB.',
+		version: '0.1.0',
+		logoSrc: '/extensions-logo.svg',
+		ctaLabel: 'Download',
+		ctaHref: '/extensions/packages/dbms-desktop-menzies/driver-mysql/0.1.0/linux-x86_64.zip',
+		secondaryCtaLabel: 'Registry',
+		secondaryCtaHref: '/extensions/registry.json'
+	},
+	{
+		id: 'driver-mssql',
+		name: 'SQL Server driver',
+		kind: 'Database Manager extension',
+		tagline: 'Signed sidecar that connects Database Manager to SQL Server.',
+		version: '0.1.0',
+		logoSrc: '/extensions-logo.svg',
+		ctaLabel: 'Download',
+		ctaHref: '/extensions/packages/dbms-desktop-menzies/driver-mssql/0.1.0/linux-x86_64.zip',
+		secondaryCtaLabel: 'Registry',
+		secondaryCtaHref: '/extensions/registry.json'
+	},
+	{
+		id: 'driver-mongodb',
+		name: 'MongoDB driver',
+		kind: 'Database Manager extension',
+		tagline: 'Signed sidecar that connects Database Manager to MongoDB.',
+		version: '0.1.0',
+		logoSrc: '/extensions-logo.svg',
+		ctaLabel: 'Download',
+		ctaHref:
+			'/extensions/packages/dbms-desktop-menzies/driver-mongodb/0.1.0/linux-x86_64.zip',
 		secondaryCtaLabel: 'Registry',
 		secondaryCtaHref: '/extensions/registry.json'
 	}

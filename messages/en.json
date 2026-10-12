@@ -28,7 +28,7 @@
 	"plans_seo_description": "Browse Menzies web service plans including Medora, Loomline, and Lumi Studio. Compare offerings and open each product from the store catalog.",
 	"apps_page_title": "Apps",
 	"apps_seo_title": "Desktop apps to download",
-	"apps_seo_description": "Download Menzies desktop apps for Linux, macOS, and Windows. Browse Portal, Database Manager, Calculator, Gallery, Notepad, and more with release links from the store.",
+	"apps_seo_description": "Download Menzies desktop apps for Linux, macOS, and Windows. Browse Portal, Database Manager, Keycraft, Calculator, Gallery, Notepad, and more with release links from the store.",
 	"library_page_title": "Library",
 	"library_seo_title": "Wash UI design library",
 	"library_seo_description": "Explore the Wash UI design library for Menzies products. Open the gallery, docs, and brand-aligned UI tools from the store library catalog.",
@@ -85,8 +85,12 @@
 	"error_fallback_title": "Unexpected error",
 	"error_fallback_blurb": "Something did not go as planned. Return home, or go back and continue from a known page.",
 	"extensions_page_title": "Extensions",
-	"extensions_seo_title": "Desktop extensions: face recognition and more",
-	"extensions_seo_description": "Browse signed Menzies desktop extensions including offline face recognition for Gallery. Install from the catalog, keep updates manual, and leave photos on your computer.",
+	"extensions_seo_title": "Desktop extensions: face recognition and DBMS drivers",
+	"extensions_seo_description": "Browse signed Menzies desktop extensions including offline face recognition for Gallery and Database Manager drivers for PostgreSQL, MySQL, SQL Server, and MongoDB. Install from the catalog and keep updates manual.",
 	"extensions_face_title": "Face recognition",
-	"extensions_face_tagline": "Offline Gallery add-on. Detects and groups faces on your computer."
+	"extensions_face_tagline": "Offline Gallery add-on. Detects and groups faces on your computer.",
+	"extensions_driver_postgres_tagline": "Signed sidecar that connects Database Manager to PostgreSQL.",
+	"extensions_driver_mysql_tagline": "Signed sidecar that connects Database Manager to MySQL and MariaDB.",
+	"extensions_driver_mssql_tagline": "Signed sidecar that connects Database Manager to SQL Server.",
+	"extensions_driver_mongodb_tagline": "Signed sidecar that connects Database Manager to MongoDB."
 }
