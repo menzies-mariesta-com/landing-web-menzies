@@ -69,10 +69,25 @@ Every publish increases `sequence`. Gallery rejects a lower sequence, and it rej
 
 Environment variables are listed in `.env.example`. Never commit the private key. CI can verify the catalog without it.
 
-## Current face entry
+## Current entries
+
+### Gallery
 
 `face-recognition` 1.0.0 for `gallery-desktop-menzies` is available. Linux x86_64 only:
 
 `/extensions/packages/gallery-desktop-menzies/face-recognition/1.0.0/linux-x86_64.zip` (45009296 bytes).
 
-The zip contains YuNet (`face_detection_yunet_2023mar.onnx`, MIT, Copyright 2020 Shiqi Yu, OpenCV Zoo), SFace (`face_recognition_sface_2021dec.onnx`, Apache-2.0, OpenCV Zoo), and ONNX Runtime 1.28 `libonnxruntime.so` (MIT, Microsoft). macOS and Windows slots are not published. `npm run extensions:build` refuses to sign a catalog whose production artifact URL is missing or does not match the file size and SHA-256.
+The zip contains YuNet (`face_detection_yunet_2023mar.onnx`, MIT, Copyright 2020 Shiqi Yu, OpenCV Zoo), SFace (`face_recognition_sface_2021dec.onnx`, Apache-2.0, OpenCV Zoo), and ONNX Runtime 1.28 `libonnxruntime.so` (MIT, Microsoft). macOS and Windows slots are not published.
+
+### Database Manager
+
+These driver sidecars for `dbms-desktop-menzies` are available at version 0.1.0 (`minAppVersion` 0.1.0). Linux x86_64 only:
+
+| Id | Path | Size (bytes) |
+| --- | --- | ---: |
+| `driver-postgres` | `/extensions/packages/dbms-desktop-menzies/driver-postgres/0.1.0/linux-x86_64.zip` | 834597 |
+| `driver-mysql` | `/extensions/packages/dbms-desktop-menzies/driver-mysql/0.1.0/linux-x86_64.zip` | 1802438 |
+| `driver-mssql` | `/extensions/packages/dbms-desktop-menzies/driver-mssql/0.1.0/linux-x86_64.zip` | 1266364 |
+| `driver-mongodb` | `/extensions/packages/dbms-desktop-menzies/driver-mongodb/0.1.0/linux-x86_64.zip` | 2300491 |
+
+Each zip contains `menzies-extension.json` and the `dbms-driver-sidecar` binary for that engine. macOS and Windows slots are not published. `npm run extensions:build` refuses to sign a catalog whose production artifact URL is missing or does not match the file size and SHA-256.

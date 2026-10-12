@@ -6,7 +6,7 @@
 
 <section
 	id="plans"
-	class="scroll-mt-20 px-4 py-12 sm:px-6 sm:py-16"
+	class="scroll-mt-20 px-4 py-8 sm:px-6 sm:py-12"
 	aria-labelledby="plans-title"
 >
 	<div class="mx-auto max-w-6xl">

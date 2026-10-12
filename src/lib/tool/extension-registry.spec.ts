@@ -37,8 +37,8 @@ describe('extension registry', () => {
 		expect(body.schema).toBe(REGISTRY_SCHEMA);
 		expect(body.sequence).toBeGreaterThanOrEqual(3);
 		expect(body.keyId).toBe(EXTENSION_KEY_ID);
-		expect(body.extensions).toHaveLength(1);
-		const face = body.extensions[0];
+		expect(body.extensions).toHaveLength(5);
+		const face = body.extensions.find((entry) => entry.id === 'face-recognition');
 		expect(face?.id).toBe('face-recognition');
 		expect(face?.availability).toBe('available');
 		expect(face?.unavailableReason).toBeUndefined();
@@ -59,6 +59,26 @@ describe('extension registry', () => {
 		const zip = readFileSync(zipPath);
 		expect(statSync(zipPath).size).toBe(artifact?.size);
 		expect(createHash('sha256').update(zip).digest('hex')).toBe(artifact?.sha256);
+
+		const postgres = body.extensions.find((entry) => entry.id === 'driver-postgres');
+		expect(postgres?.appId).toBe('dbms-desktop-menzies');
+		expect(postgres?.availability).toBe('available');
+		expect(postgres?.release?.version).toBe('0.1.0');
+		expect(postgres?.release?.minAppVersion).toBe('0.1.0');
+		const pgArtifact = postgres?.release?.artifacts[0];
+		expect(pgArtifact?.url).toBe(
+			'https://menzies.mariesta.com/extensions/packages/dbms-desktop-menzies/driver-postgres/0.1.0/linux-x86_64.zip'
+		);
+		const pgZipPath = resolve(
+			root,
+			'static/extensions/packages/dbms-desktop-menzies/driver-postgres/0.1.0/linux-x86_64.zip'
+		);
+		const pgZip = readFileSync(pgZipPath);
+		expect(statSync(pgZipPath).size).toBe(pgArtifact?.size);
+		expect(createHash('sha256').update(pgZip).digest('hex')).toBe(pgArtifact?.sha256);
+		expect(
+			body.extensions.filter((entry) => entry.appId === 'dbms-desktop-menzies').map((e) => e.id)
+		).toEqual(['driver-postgres', 'driver-mysql', 'driver-mssql', 'driver-mongodb']);
 		const serialized = JSON.stringify(source);
 		expect(serialized.includes('store.menzies.design')).toBe(false);
 		expect(serialized.includes('http://')).toBe(false);

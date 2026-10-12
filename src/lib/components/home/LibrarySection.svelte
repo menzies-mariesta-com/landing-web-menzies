@@ -6,7 +6,7 @@
 
 <section
 	id="library"
-	class="scroll-mt-20 px-4 py-12 sm:px-6 sm:py-16"
+	class="scroll-mt-20 px-4 py-8 sm:px-6 sm:py-12"
 	aria-labelledby="library-title"
 >
 	<div class="mx-auto max-w-6xl">
@@ -38,8 +38,8 @@
 					<div class="mt-6 flex flex-wrap gap-2">
 						<a
 							href={item.ctaHref}
-							target="_blank"
-							rel="noopener noreferrer"
+							target={item.ctaHref.startsWith('http') ? '_blank' : undefined}
+							rel={item.ctaHref.startsWith('http') ? 'noopener noreferrer' : undefined}
 							class="btn btn-primary cursor-pointer"
 						>
 							{item.ctaLabel}
@@ -47,8 +47,10 @@
 						{#if item.secondaryCtaHref && item.secondaryCtaLabel}
 							<a
 								href={item.secondaryCtaHref}
-								target="_blank"
-								rel="noopener noreferrer"
+								target={item.secondaryCtaHref.startsWith('http') ? '_blank' : undefined}
+								rel={item.secondaryCtaHref.startsWith('http')
+									? 'noopener noreferrer'
+									: undefined}
 								class="btn btn-ghost cursor-pointer"
 							>
 								{item.secondaryCtaLabel}

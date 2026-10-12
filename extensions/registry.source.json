@@ -1,7 +1,7 @@
 {
 	"schema": "menzies-extension-registry/1",
-	"sequence": 3,
-	"issuedAt": "2026-10-12T08:44:19Z",
+	"sequence": 6,
+	"issuedAt": "2026-10-12T17:00:00Z",
 	"keyId": "menzies-extensions-ed25519-1",
 	"revoked": [],
 	"extensions": [
@@ -9,7 +9,7 @@
 			"id": "face-recognition",
 			"appId": "gallery-desktop-menzies",
 			"name": "Face recognition",
-			"summary": "Optional Gallery add-on. Detects faces and groups them on this computer. Photos are not uploaded. Updates stay manual until you choose automatic.",
+			"summary": "Offline Gallery add-on. Detects and groups faces on your computer. Updates stay manual until you choose automatic.",
 			"availability": "available",
 			"defaultUpdateMode": "manual",
 			"platforms": ["linux"],
@@ -26,6 +26,106 @@
 						"sha256": "be7c65b3a6a6cf506e820959d6b521298a74693317aea8b2b921507d05c45d39",
 						"size": 45009296,
 						"signature": "WgWJRzeQ0xcAk+cWoExtlrpIeGfrcMgDAinW7KaP3kLsxCZa7MkQSx9ob6tgIjRxp+0onjyulo9sQgW2l2ONDA=="
+					}
+				]
+			}
+		},
+		{
+			"id": "driver-postgres",
+			"appId": "dbms-desktop-menzies",
+			"name": "PostgreSQL driver",
+			"summary": "Signed sidecar that connects Database Manager to PostgreSQL servers. Updates stay manual until you choose automatic.",
+			"availability": "available",
+			"defaultUpdateMode": "manual",
+			"platforms": ["linux"],
+			"release": {
+				"version": "0.1.0",
+				"minAppVersion": "0.1.0",
+				"releasedAt": "2026-10-12T17:00:00Z",
+				"notes": "Linux x86_64 PostgreSQL driver sidecar for Database Manager. macOS and Windows packages are not published.",
+				"artifacts": [
+					{
+						"os": "linux",
+						"arch": "x86_64",
+						"url": "https://menzies.mariesta.com/extensions/packages/dbms-desktop-menzies/driver-postgres/0.1.0/linux-x86_64.zip",
+						"sha256": "a14634b0197707a059944c2cdecd5f204004118c7f1db6d605584a419be2c0cb",
+						"size": 834597,
+						"signature": "tBKvYLnB14lIdq84AHd6di94o12NKNPDQYnVk4BegUNnkTVYNJOtczyGk9wq5Y8lxGD2XlSmzUvAsn14TFqbCA=="
+					}
+				]
+			}
+		},
+		{
+			"id": "driver-mysql",
+			"appId": "dbms-desktop-menzies",
+			"name": "MySQL and MariaDB driver",
+			"summary": "Signed sidecar that connects Database Manager to MySQL and MariaDB servers. Updates stay manual until you choose automatic.",
+			"availability": "available",
+			"defaultUpdateMode": "manual",
+			"platforms": ["linux"],
+			"release": {
+				"version": "0.1.0",
+				"minAppVersion": "0.1.0",
+				"releasedAt": "2026-10-12T17:00:00Z",
+				"notes": "Linux x86_64 MySQL and MariaDB driver sidecar for Database Manager. macOS and Windows packages are not published.",
+				"artifacts": [
+					{
+						"os": "linux",
+						"arch": "x86_64",
+						"url": "https://menzies.mariesta.com/extensions/packages/dbms-desktop-menzies/driver-mysql/0.1.0/linux-x86_64.zip",
+						"sha256": "2e99365c91e2602dc5e570f2027c190a39d1015e1641a40923226bd60489a8e4",
+						"size": 1802438,
+						"signature": "4U1csiqEc6JbFkVP1swFwyK780qVp0E/qiIO59ikaacmHNuRiUFCBeaJBLLz025+q1KyLqJGDYRupeNFrOanDw=="
+					}
+				]
+			}
+		},
+		{
+			"id": "driver-mssql",
+			"appId": "dbms-desktop-menzies",
+			"name": "SQL Server driver",
+			"summary": "Signed sidecar that connects Database Manager to Microsoft SQL Server. Updates stay manual until you choose automatic.",
+			"availability": "available",
+			"defaultUpdateMode": "manual",
+			"platforms": ["linux"],
+			"release": {
+				"version": "0.1.0",
+				"minAppVersion": "0.1.0",
+				"releasedAt": "2026-10-12T17:00:00Z",
+				"notes": "Linux x86_64 SQL Server driver sidecar for Database Manager. macOS and Windows packages are not published.",
+				"artifacts": [
+					{
+						"os": "linux",
+						"arch": "x86_64",
+						"url": "https://menzies.mariesta.com/extensions/packages/dbms-desktop-menzies/driver-mssql/0.1.0/linux-x86_64.zip",
+						"sha256": "2146ee6029df0dc8d3132fd3b1aed6be3a69463ad7198193a5b2206b7e6aac03",
+						"size": 1266364,
+						"signature": "fD6ooDnlLJiuuBauREzX+7/CIeBejvhNQap0dZXtpYEwWeIQWJqEui2BoSCiWlN4sUXnDB663UfP3E7XdoBnCQ=="
+					}
+				]
+			}
+		},
+		{
+			"id": "driver-mongodb",
+			"appId": "dbms-desktop-menzies",
+			"name": "MongoDB driver",
+			"summary": "Signed sidecar that connects Database Manager to MongoDB servers. Updates stay manual until you choose automatic.",
+			"availability": "available",
+			"defaultUpdateMode": "manual",
+			"platforms": ["linux"],
+			"release": {
+				"version": "0.1.0",
+				"minAppVersion": "0.1.0",
+				"releasedAt": "2026-10-12T17:00:00Z",
+				"notes": "Linux x86_64 MongoDB driver sidecar for Database Manager. macOS and Windows packages are not published.",
+				"artifacts": [
+					{
+						"os": "linux",
+						"arch": "x86_64",
+						"url": "https://menzies.mariesta.com/extensions/packages/dbms-desktop-menzies/driver-mongodb/0.1.0/linux-x86_64.zip",
+						"sha256": "1c800e25ee932b714672d36d64056c0826d74298b2b6b79c43cf6f3c95fc4213",
+						"size": 2300491,
+						"signature": "kFrq3/0sEx8N3FBl+eBFYmaPwd5zcACM9tvYwCSfYLpxZuPEkAdq/NjvFgof4M1wYT5Z/bb4xJtY15Evbx09Bg=="
 					}
 				]
 			}

@@ -99,8 +99,8 @@
 							<div class="mt-6 flex flex-wrap gap-2">
 								<a
 									href={item.ctaHref}
-									target="_blank"
-									rel="noopener noreferrer"
+									target={item.ctaHref.startsWith('http') ? '_blank' : undefined}
+									rel={item.ctaHref.startsWith('http') ? 'noopener noreferrer' : undefined}
 									class="btn btn-primary cursor-pointer"
 								>
 									{item.ctaLabel}
@@ -108,8 +108,10 @@
 								{#if item.secondaryCtaHref && item.secondaryCtaLabel}
 									<a
 										href={item.secondaryCtaHref}
-										target="_blank"
-										rel="noopener noreferrer"
+										target={item.secondaryCtaHref.startsWith('http') ? '_blank' : undefined}
+										rel={item.secondaryCtaHref.startsWith('http')
+											? 'noopener noreferrer'
+											: undefined}
 										class="btn btn-ghost cursor-pointer"
 									>
 										{item.secondaryCtaLabel}
