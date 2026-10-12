@@ -29,6 +29,10 @@ npm run dev
 npm run dev -- --open
 ```
 
+## Extension registry
+
+Signed catalog for desktop app extensions: `/extensions` and `/extensions/registry.json`. Signing workflow: [docs/extension-registry.md](docs/extension-registry.md). `npm run build` verifies the catalog. The private key is not in git.
+
 ## Building
 
 To create a production version of your app:

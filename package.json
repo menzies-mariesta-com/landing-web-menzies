@@ -5,7 +5,9 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
-		"build": "vite build",
+		"extensions:build": "node --experimental-strip-types scripts/extensions/build-registry.ts",
+		"extensions:generate-key": "node --experimental-strip-types scripts/extensions/build-registry.ts generate",
+		"build": "npm run extensions:build && vite build",
 		"preview": "vite preview",
 		"paraglide": "paraglide-js compile --project ./project.inlang --outdir ./src/lib/paraglide --strategy cookie localStorage baseLocale --emit-ts-declarations --output-structure message-modules",
 		"prepare": "npm run paraglide && (svelte-kit sync || echo '')",
