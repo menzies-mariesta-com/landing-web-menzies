@@ -25,7 +25,7 @@
 	"view_more": "더 보기",
 	"plans_page_title": "플랜",
 	"plans_seo_title": "웹 서비스 플랜: Medora 외",
-	"plans_seo_description": "Medora, Loomline, Lumi Studio를 포함한 Menzies 웹 서비스 플랜을 살펴보세요. 제공 내용을 비교하고 스토어 카탈로그에서 각 제품을 여세요.",
+	"plans_seo_description": "Medora, NextUp, Lumi Studio를 포함한 Menzies 웹 서비스 플랜을 살펴보세요. 제공 내용을 비교하고 스토어 카탈로그에서 각 제품을 여세요.",
 	"apps_page_title": "앱",
 	"apps_seo_title": "다운로드할 데스크톱 앱",
 	"apps_seo_description": "Linux, macOS, Windows용 Menzies 데스크톱 앱을 다운로드하세요. Portal, Database Manager, Keycraft, Calculator, Gallery, Notepad 등을 스토어 릴리스 링크와 함께 둘러보세요.",
@@ -92,5 +92,16 @@
 	"extensions_driver_postgres_tagline": "Database Manager를 PostgreSQL에 연결하는 서명된 사이드카.",
 	"extensions_driver_mysql_tagline": "Database Manager를 MySQL 및 MariaDB에 연결하는 서명된 사이드카.",
 	"extensions_driver_mssql_tagline": "Database Manager를 SQL Server에 연결하는 서명된 사이드카.",
-	"extensions_driver_mongodb_tagline": "Database Manager를 MongoDB에 연결하는 서명된 사이드카."
+	"extensions_driver_mongodb_tagline": "Database Manager를 MongoDB에 연결하는 서명된 사이드카.",
+	"nav_docs": "문서",
+	"docs_chrome_title": "문서",
+	"docs_chrome_search": "페이지 검색…",
+	"docs_chrome_search_label": "검색",
+	"docs_chrome_open_menu": "메뉴 열기",
+	"docs_search_placeholder": "문서 검색…",
+	"docs_search_empty": "일치하는 페이지가 없습니다",
+	"docs_search_close": "닫기",
+	"docs_on_this_page": "이 페이지에서",
+	"docs_prev": "이전",
+	"docs_next": "다음"
 }

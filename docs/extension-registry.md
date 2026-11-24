@@ -83,11 +83,19 @@ The zip contains YuNet (`face_detection_yunet_2023mar.onnx`, MIT, Copyright 2020
 
 These driver sidecars for `dbms-desktop-menzies` are available at version 0.1.0 (`minAppVersion` 0.1.0). Linux x86_64 only:
 
-| Id | Path | Size (bytes) |
-| --- | --- | ---: |
-| `driver-postgres` | `/extensions/packages/dbms-desktop-menzies/driver-postgres/0.1.0/linux-x86_64.zip` | 834597 |
-| `driver-mysql` | `/extensions/packages/dbms-desktop-menzies/driver-mysql/0.1.0/linux-x86_64.zip` | 1802438 |
-| `driver-mssql` | `/extensions/packages/dbms-desktop-menzies/driver-mssql/0.1.0/linux-x86_64.zip` | 1266364 |
-| `driver-mongodb` | `/extensions/packages/dbms-desktop-menzies/driver-mongodb/0.1.0/linux-x86_64.zip` | 2300491 |
+| Id                 | Path                                                                                | Notes                                     |
+| ------------------ | ----------------------------------------------------------------------------------- | ----------------------------------------- |
+| `driver-postgres`  | `/extensions/packages/dbms-desktop-menzies/driver-postgres/0.1.0/linux-x86_64.zip`  | Postgres wire sidecar                     |
+| `driver-mysql`     | `/extensions/packages/dbms-desktop-menzies/driver-mysql/0.1.0/linux-x86_64.zip`     | MySQL and MariaDB                         |
+| `driver-mssql`     | `/extensions/packages/dbms-desktop-menzies/driver-mssql/0.1.0/linux-x86_64.zip`     | SQL Server                                |
+| `driver-mongodb`   | `/extensions/packages/dbms-desktop-menzies/driver-mongodb/0.1.0/linux-x86_64.zip`   | MongoDB                                   |
+| `driver-jdbc`      | `/extensions/packages/dbms-desktop-menzies/driver-jdbc/0.1.0/linux-x86_64.zip`      | Stub sidecar until JDBC host wiring ships |
+| `driver-cql`       | `/extensions/packages/dbms-desktop-menzies/driver-cql/0.1.0/linux-x86_64.zip`       | Stub sidecar                              |
+| `driver-redis`     | `/extensions/packages/dbms-desktop-menzies/driver-redis/0.1.0/linux-x86_64.zip`     | Stub sidecar                              |
+| `driver-warehouse` | `/extensions/packages/dbms-desktop-menzies/driver-warehouse/0.1.0/linux-x86_64.zip` | Stub sidecar                              |
+| `driver-dynamodb`  | `/extensions/packages/dbms-desktop-menzies/driver-dynamodb/0.1.0/linux-x86_64.zip`  | Stub sidecar                              |
+| `driver-firebase`  | `/extensions/packages/dbms-desktop-menzies/driver-firebase/0.1.0/linux-x86_64.zip`  | Stub sidecar                              |
+| `driver-neo4j`     | `/extensions/packages/dbms-desktop-menzies/driver-neo4j/0.1.0/linux-x86_64.zip`     | Stub sidecar                              |
+| `driver-couchbase` | `/extensions/packages/dbms-desktop-menzies/driver-couchbase/0.1.0/linux-x86_64.zip` | Stub sidecar                              |
 
-Each zip contains `menzies-extension.json` and the `dbms-driver-sidecar` binary for that engine. macOS and Windows slots are not published. `npm run extensions:build` refuses to sign a catalog whose production artifact URL is missing or does not match the file size and SHA-256.
+Each zip contains `menzies-extension.json` and the `dbms-driver-sidecar` binary for that extension id. Rebuild and republish from `dbms-desktop-menzies` with `npm run driver-extensions:publish-landing` (see that app README). macOS and Windows slots are not published. `npm run extensions:build` refuses to sign a catalog whose production artifact URL is missing or does not match the file size and SHA-256.

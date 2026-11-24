@@ -1,0 +1,22 @@
+---
+title: Getting started
+description: Every Menzies app in one place, with the documentation for each product.
+section: ''
+order: 1
+---
+
+<script lang="ts">
+	import DocsAppCards from '$lib/components/docs/DocsAppCards.svelte';
+</script>
+
+# Getting started
+
+Menzies builds calm software for clinics, hospitals, studios, and busy front desks. Pick a product below to read its documentation, or open an app to see what it does.
+
+<DocsAppCards />
+
+## How to read these docs
+
+Each product has its own section in the sidebar. Open a product, then open the area you work in, such as Billing or Registration, to find the screen you need.
+
+Press **Ctrl+K** anywhere on this site to search every page.

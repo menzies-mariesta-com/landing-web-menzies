@@ -5,7 +5,7 @@ export const SITE_TAGLINE = 'Software worth opening';
 /** Public contact address for mailto: chrome (nav, footer). */
 export const CONTACT_EMAIL = 'zarnihlawn@outlook.com';
 export const DEFAULT_DESCRIPTION =
-	'Menzies Store: software worth opening. Discover web service plans (Medora, Loomline, Lumi Studio), desktop apps, and design libraries in one quiet catalog.';
+	'Menzies Store: software worth opening. Discover web service plans (Medora, NextUp, Lumi Studio), desktop apps, and design libraries in one quiet catalog.';
 /** Default Open Graph / Twitter share image (1200x630, kept under ~50KB). */
 export const DEFAULT_OG_IMAGE_PATH = '/og-default.png';
 export const OG_IMAGE_WIDTH = 1200;

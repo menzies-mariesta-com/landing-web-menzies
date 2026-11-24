@@ -17,7 +17,7 @@
 		websiteJsonLd
 	} from '$lib/util/seo';
 
-	const homeDescription = `Menzies Store: ${SITE_TAGLINE}. Discover web service plans (Medora, Loomline, Lumi Studio), desktop apps, design libraries, and signed extensions in one quiet catalog.`;
+	const homeDescription = `Menzies Store: ${SITE_TAGLINE}. Discover web service plans (Medora, NextUp, Lumi Studio), desktop apps, design libraries, and signed extensions in one quiet catalog.`;
 
 	const seo = $derived(
 		buildSeo({

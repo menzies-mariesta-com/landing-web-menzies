@@ -1,7 +1,7 @@
 {
 	"schema": "menzies-extension-registry/1",
-	"sequence": 6,
-	"issuedAt": "2026-10-12T17:00:00Z",
+	"sequence": 7,
+	"issuedAt": "2026-10-17T06:30:00Z",
 	"keyId": "menzies-extensions-ed25519-1",
 	"revoked": [],
 	"extensions": [
@@ -126,6 +126,206 @@
 						"sha256": "1c800e25ee932b714672d36d64056c0826d74298b2b6b79c43cf6f3c95fc4213",
 						"size": 2300491,
 						"signature": "kFrq3/0sEx8N3FBl+eBFYmaPwd5zcACM9tvYwCSfYLpxZuPEkAdq/NjvFgof4M1wYT5Z/bb4xJtY15Evbx09Bg=="
+					}
+				]
+			}
+		},
+		{
+			"id": "driver-jdbc",
+			"appId": "dbms-desktop-menzies",
+			"name": "JDBC driver pack",
+			"summary": "Signed sidecar for Oracle, Db2, SAP HANA, Derby, H2, Ingres, and Firebird using user supplied JDBC jars. Updates stay manual until you choose automatic.",
+			"availability": "available",
+			"defaultUpdateMode": "manual",
+			"platforms": ["linux"],
+			"release": {
+				"version": "0.1.0",
+				"minAppVersion": "0.1.0",
+				"releasedAt": "2026-10-17T06:30:00Z",
+				"notes": "Linux x86_64 JDBC driver sidecar for Database Manager. macOS and Windows packages are not published.",
+				"artifacts": [
+					{
+						"os": "linux",
+						"arch": "x86_64",
+						"url": "https://menzies.mariesta.com/extensions/packages/dbms-desktop-menzies/driver-jdbc/0.1.0/linux-x86_64.zip",
+						"sha256": "09fe4c219ff712f66e92cccb924ce70ad382fdad0db12e5e34cf7e81b088ff7d",
+						"size": 631184,
+						"signature": "pTJtLlbtvUY/wccbOtaGdvn2VzGfBZnPmt1y2vEG7Ssdsp5PAE2bM1zcTaLbGbZctF3ZPk+b8JElBoXpqqLxDg=="
+					}
+				]
+			}
+		},
+		{
+			"id": "driver-cql",
+			"appId": "dbms-desktop-menzies",
+			"name": "Cassandra and Scylla driver",
+			"summary": "Signed sidecar for CQL engines (Cassandra, ScyllaDB). Updates stay manual until you choose automatic.",
+			"availability": "available",
+			"defaultUpdateMode": "manual",
+			"platforms": ["linux"],
+			"release": {
+				"version": "0.1.0",
+				"minAppVersion": "0.1.0",
+				"releasedAt": "2026-10-17T06:30:00Z",
+				"notes": "Linux x86_64 CQL driver sidecar for Database Manager. macOS and Windows packages are not published.",
+				"artifacts": [
+					{
+						"os": "linux",
+						"arch": "x86_64",
+						"url": "https://menzies.mariesta.com/extensions/packages/dbms-desktop-menzies/driver-cql/0.1.0/linux-x86_64.zip",
+						"sha256": "9d69389f1c7a6e29a45d2953fb52cefde46f2c04f95f20f4878890353934569f",
+						"size": 631135,
+						"signature": "FlHP23pTPAyBhetW47pocJvCulZtGhTANbqA/NFF8hUYfVpa3jAfCldqtlofPDguElJdCqe+x3x0Kb7rggxSDA=="
+					}
+				]
+			}
+		},
+		{
+			"id": "driver-redis",
+			"appId": "dbms-desktop-menzies",
+			"name": "Redis driver",
+			"summary": "Signed sidecar for Redis command and key browsing. Updates stay manual until you choose automatic.",
+			"availability": "available",
+			"defaultUpdateMode": "manual",
+			"platforms": ["linux"],
+			"release": {
+				"version": "0.1.0",
+				"minAppVersion": "0.1.0",
+				"releasedAt": "2026-10-17T06:30:00Z",
+				"notes": "Linux x86_64 Redis driver sidecar for Database Manager. macOS and Windows packages are not published.",
+				"artifacts": [
+					{
+						"os": "linux",
+						"arch": "x86_64",
+						"url": "https://menzies.mariesta.com/extensions/packages/dbms-desktop-menzies/driver-redis/0.1.0/linux-x86_64.zip",
+						"sha256": "2729a25aaf2661204235b22f8b2206615aae57c7387b9d36f81dabaf4a81b6f5",
+						"size": 631143,
+						"signature": "iE+lQlchtODTKJWyTCyQ7PyJ0lmMXWOr5D3Z4AQX8qVc54bMVItKGhSsa0z0/UTch0ut/W6EZWj0mOJUusl9Ag=="
+					}
+				]
+			}
+		},
+		{
+			"id": "driver-warehouse",
+			"appId": "dbms-desktop-menzies",
+			"name": "Snowflake driver",
+			"summary": "Signed sidecar for Snowflake SQL worksheets. Updates stay manual until you choose automatic.",
+			"availability": "available",
+			"defaultUpdateMode": "manual",
+			"platforms": ["linux"],
+			"release": {
+				"version": "0.1.0",
+				"minAppVersion": "0.1.0",
+				"releasedAt": "2026-10-17T06:30:00Z",
+				"notes": "Linux x86_64 Snowflake driver sidecar for Database Manager. macOS and Windows packages are not published.",
+				"artifacts": [
+					{
+						"os": "linux",
+						"arch": "x86_64",
+						"url": "https://menzies.mariesta.com/extensions/packages/dbms-desktop-menzies/driver-warehouse/0.1.0/linux-x86_64.zip",
+						"sha256": "752064572ab1c31defe3b65de0095ebe2f3e5d3b06fd72e46d29c48b2559376c",
+						"size": 631132,
+						"signature": "bhpjNNwLQXS/LlyQnrQk+yIRdu3XIwXP7I/Z4EiPaaNvjXgKpU3vWjKQf64bAuhYRr+UFkudsMzSCdnwGIN/DQ=="
+					}
+				]
+			}
+		},
+		{
+			"id": "driver-dynamodb",
+			"appId": "dbms-desktop-menzies",
+			"name": "DynamoDB driver",
+			"summary": "Signed sidecar for DynamoDB table and item exploration (online). Updates stay manual until you choose automatic.",
+			"availability": "available",
+			"defaultUpdateMode": "manual",
+			"platforms": ["linux"],
+			"release": {
+				"version": "0.1.0",
+				"minAppVersion": "0.1.0",
+				"releasedAt": "2026-10-17T06:30:00Z",
+				"notes": "Linux x86_64 DynamoDB driver sidecar for Database Manager. macOS and Windows packages are not published.",
+				"artifacts": [
+					{
+						"os": "linux",
+						"arch": "x86_64",
+						"url": "https://menzies.mariesta.com/extensions/packages/dbms-desktop-menzies/driver-dynamodb/0.1.0/linux-x86_64.zip",
+						"sha256": "b0abdbdb4b3e363b514d5ea0fb43bc31c2ffe1c6e2ff340fabc3cdce4cdcc1ae",
+						"size": 631146,
+						"signature": "PxsI1hHxJnUIAdQHUvtXDDpT/EMLF6x/7efCybk5T7mToVbjoSZXLxi2b048Aj+tz+Qtq2E9YYY5fKgM2USNBQ=="
+					}
+				]
+			}
+		},
+		{
+			"id": "driver-firebase",
+			"appId": "dbms-desktop-menzies",
+			"name": "Firebase Realtime Database driver",
+			"summary": "Signed sidecar for Firebase RTDB tree navigation (online). Updates stay manual until you choose automatic.",
+			"availability": "available",
+			"defaultUpdateMode": "manual",
+			"platforms": ["linux"],
+			"release": {
+				"version": "0.1.0",
+				"minAppVersion": "0.1.0",
+				"releasedAt": "2026-10-17T06:30:00Z",
+				"notes": "Linux x86_64 Firebase driver sidecar for Database Manager. macOS and Windows packages are not published.",
+				"artifacts": [
+					{
+						"os": "linux",
+						"arch": "x86_64",
+						"url": "https://menzies.mariesta.com/extensions/packages/dbms-desktop-menzies/driver-firebase/0.1.0/linux-x86_64.zip",
+						"sha256": "86effe470601ab62dbf4fd3023598bb180da945c0c8f2ff0478284c38529a0ce",
+						"size": 631150,
+						"signature": "lYJBpQzA95Oj59jGZdV0zZowXZlbc01A6uW9IzXUxQt/1dpVN9uxzRWnoeohzNdv9klhy8xvbgf6SUTUDD/pBw=="
+					}
+				]
+			}
+		},
+		{
+			"id": "driver-neo4j",
+			"appId": "dbms-desktop-menzies",
+			"name": "Neo4j driver",
+			"summary": "Signed sidecar for Bolt and Cypher against Neo4j. Updates stay manual until you choose automatic.",
+			"availability": "available",
+			"defaultUpdateMode": "manual",
+			"platforms": ["linux"],
+			"release": {
+				"version": "0.1.0",
+				"minAppVersion": "0.1.0",
+				"releasedAt": "2026-10-17T06:30:00Z",
+				"notes": "Linux x86_64 Neo4j driver sidecar for Database Manager. macOS and Windows packages are not published.",
+				"artifacts": [
+					{
+						"os": "linux",
+						"arch": "x86_64",
+						"url": "https://menzies.mariesta.com/extensions/packages/dbms-desktop-menzies/driver-neo4j/0.1.0/linux-x86_64.zip",
+						"sha256": "77da2ef191b7b2bbd6e1ba59c9d9a19c9745fbde84a49a430f01fa7ab426228d",
+						"size": 631152,
+						"signature": "OUPSeXmVfVQkGw8YbBXVJ2hPqom5WyevErKIQtfteFD7GAIBRgVOEFTDHiGI142c0Vf09KojtoCAtf9FULygCw=="
+					}
+				]
+			}
+		},
+		{
+			"id": "driver-couchbase",
+			"appId": "dbms-desktop-menzies",
+			"name": "Couchbase driver",
+			"summary": "Signed sidecar for Couchbase buckets and N1QL. Updates stay manual until you choose automatic.",
+			"availability": "available",
+			"defaultUpdateMode": "manual",
+			"platforms": ["linux"],
+			"release": {
+				"version": "0.1.0",
+				"minAppVersion": "0.1.0",
+				"releasedAt": "2026-10-17T06:30:00Z",
+				"notes": "Linux x86_64 Couchbase driver sidecar for Database Manager. macOS and Windows packages are not published.",
+				"artifacts": [
+					{
+						"os": "linux",
+						"arch": "x86_64",
+						"url": "https://menzies.mariesta.com/extensions/packages/dbms-desktop-menzies/driver-couchbase/0.1.0/linux-x86_64.zip",
+						"sha256": "7d59fed8cca56743b01bc04c40109a3176f866bd9b82b443a935aed3d29deac2",
+						"size": 631126,
+						"signature": "Qw8oGZGBgeTrGJnzUv+P5S7JSgMufR8JNZqa9/88n+skKW+EOmydFecVv5ijcmqGY/GRGbtSOiRCYpFgcUI5CQ=="
 					}
 				]
 			}

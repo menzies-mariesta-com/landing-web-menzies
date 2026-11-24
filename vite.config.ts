@@ -1,10 +1,36 @@
 import { paraglideVitePlugin } from '@inlang/paraglide-js';
 import { mdsvex } from 'mdsvex';
+import rehypeSlug from 'rehype-slug';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'vitest/config';
 import { playwright } from '@vitest/browser-playwright';
 import adapter from '@sveltejs/adapter-netlify';
 import { sveltekit } from '@sveltejs/kit/vite';
+import { highlightCode } from './src/lib/tool/docs/highlight.ts';
+
+// Cast: mdsvex plugin types lag rehype / highlighter signatures
+const mdsvexOptions = {
+	extensions: ['.svx', '.md'],
+	rehypePlugins: [
+		rehypeSlug,
+		[
+			rehypeAutolinkHeadings,
+			{
+				behavior: 'wrap',
+				properties: {
+					className: ['docs-heading-link', 'cursor-pointer', 'no-underline']
+				}
+			}
+		]
+	],
+	highlight: {
+		highlighter: async (code: string, lang?: string | null) => {
+			const html = await highlightCode(code, lang ?? 'text');
+			return `{@html ${JSON.stringify(html)}}`;
+		}
+	}
+};
 
 export default defineConfig({
 	server: {
@@ -34,7 +60,7 @@ export default defineConfig({
 				experimental: { async: true }
 			},
 			adapter: adapter(),
-			preprocess: [mdsvex({ extensions: ['.svx', '.md'] })],
+			preprocess: [mdsvex(mdsvexOptions)],
 			extensions: ['.svelte', '.svx', '.md'],
 			experimental: { remoteFunctions: true },
 			// Absolute canonical / OG URLs in prerendered HTML (not http://sveltekit-prerender).
