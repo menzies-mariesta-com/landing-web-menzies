@@ -18,7 +18,8 @@
 		{ route: '/(public)/plans' as const, path: '/plans', label: m.nav_plans() },
 		{ route: '/(public)/apps' as const, path: '/apps', label: m.nav_apps() },
 		{ route: '/(public)/library' as const, path: '/library', label: m.nav_library() },
-		{ route: '/(public)/extensions' as const, path: '/extensions', label: m.nav_extensions() }
+		{ route: '/(public)/extensions' as const, path: '/extensions', label: m.nav_extensions() },
+		{ route: '/(public)/docs' as const, path: '/docs', label: m.nav_docs() }
 	]);
 
 	const contactHref = `mailto:${CONTACT_EMAIL}`;

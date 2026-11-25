@@ -1,5 +1,12 @@
 /** Real Menzies web-service plans, apps, and library items for the landing home page. */
 
+import {
+	DBMS_DRIVER_EXTENSIONS,
+	DRIVER_EXTENSION_VERSION,
+	driverExtensionPackagePath
+} from '$lib/tool/dbms-driver-extensions';
+import { driverExtensionTagline } from '$lib/tool/extension-taglines';
+
 export type MenziesApp = {
 	id: string;
 	name: string;
@@ -45,7 +52,9 @@ export type MenziesExtension = {
 	tagline: string;
 	version?: string;
 	/** Public URL under `/static` (served from site root). */
-	logoSrc: string;
+	logoSrc?: string;
+	/** Simple Icons slug when logoSrc is not used. */
+	iconSlug?: string;
 	ctaLabel: string;
 	ctaHref: string;
 	secondaryCtaLabel?: string;
@@ -142,17 +151,17 @@ export const MENZIES_PLANS: MenziesPlan[] = [
 			'Hospital workspace for patients, visits, EMR, billing, inventory, and clinical workflows in one calm console.',
 		logoSrc: '/medora-logo.svg',
 		ctaLabel: 'Learn more',
-		ctaHref: 'https://github.com/menzies-mariesta-com/medora-web-menzies'
+		ctaHref: 'https://medora-menzies.mariesta.com'
 	},
 	{
-		id: 'loomline',
-		name: 'Loomline',
+		id: 'nextup',
+		name: 'NextUp',
 		kind: 'Web service',
 		description:
 			'Multi-tenant queue management for lobbies and counters: kiosk, QR tickets, TV voice calling, and appointments.',
 		logoSrc: '/loomline-logo.svg',
 		ctaLabel: 'Learn more',
-		ctaHref: 'https://github.com/menzies-mariesta-com/loomline-web-menzies'
+		ctaHref: 'https://nextup-menzies.mariesta.com'
 	},
 	{
 		id: 'lumi-studio',
@@ -162,7 +171,7 @@ export const MENZIES_PLANS: MenziesPlan[] = [
 			'Client onboarding, studio chat, and project tracking from pitch through scoped delivery and file handoff.',
 		logoSrc: '/lumi-studio-logo.png',
 		ctaLabel: 'Learn more',
-		ctaHref: 'https://github.com/menzies-mariesta-com/lumi-studio-web-menzies'
+		ctaHref: 'https://lumistudio-menzies.mariesta.com'
 	}
 ];
 
@@ -172,7 +181,7 @@ export const MENZIES_LIBRARY: MenziesLibraryItem[] = [
 		name: 'Wash UI',
 		kind: 'Design library',
 		tagline: 'Component library and design system for Menzies products.',
-		version: '1.3.0',
+		version: '1.7.0',
 		logoSrc: '/wash-ui-logo.svg',
 		ctaLabel: 'Open gallery',
 		ctaHref: 'https://design-menzies.netlify.app',
@@ -191,59 +200,20 @@ export const MENZIES_EXTENSIONS: MenziesExtension[] = [
 		version: '1.0.0',
 		logoSrc: '/extensions-logo.svg',
 		ctaLabel: 'Download',
-		ctaHref:
-			'/extensions/packages/gallery-desktop-menzies/face-recognition/1.0.0/linux-x86_64.zip',
+		ctaHref: '/extensions/packages/gallery-desktop-menzies/face-recognition/1.0.0/linux-x86_64.zip',
 		secondaryCtaLabel: 'Registry',
 		secondaryCtaHref: '/extensions/registry.json'
 	},
-	{
-		id: 'driver-postgres',
-		name: 'PostgreSQL driver',
+	...DBMS_DRIVER_EXTENSIONS.map((driver) => ({
+		id: driver.id,
+		name: driver.name,
 		kind: 'Database Manager extension',
-		tagline: 'Signed sidecar that connects Database Manager to PostgreSQL.',
-		version: '0.1.0',
-		logoSrc: '/extensions-logo.svg',
+		tagline: driverExtensionTagline(driver.id, driver.name),
+		version: DRIVER_EXTENSION_VERSION,
+		iconSlug: driver.iconSlug,
 		ctaLabel: 'Download',
-		ctaHref:
-			'/extensions/packages/dbms-desktop-menzies/driver-postgres/0.1.0/linux-x86_64.zip',
+		ctaHref: driverExtensionPackagePath(driver.id),
 		secondaryCtaLabel: 'Registry',
 		secondaryCtaHref: '/extensions/registry.json'
-	},
-	{
-		id: 'driver-mysql',
-		name: 'MySQL and MariaDB driver',
-		kind: 'Database Manager extension',
-		tagline: 'Signed sidecar that connects Database Manager to MySQL and MariaDB.',
-		version: '0.1.0',
-		logoSrc: '/extensions-logo.svg',
-		ctaLabel: 'Download',
-		ctaHref: '/extensions/packages/dbms-desktop-menzies/driver-mysql/0.1.0/linux-x86_64.zip',
-		secondaryCtaLabel: 'Registry',
-		secondaryCtaHref: '/extensions/registry.json'
-	},
-	{
-		id: 'driver-mssql',
-		name: 'SQL Server driver',
-		kind: 'Database Manager extension',
-		tagline: 'Signed sidecar that connects Database Manager to SQL Server.',
-		version: '0.1.0',
-		logoSrc: '/extensions-logo.svg',
-		ctaLabel: 'Download',
-		ctaHref: '/extensions/packages/dbms-desktop-menzies/driver-mssql/0.1.0/linux-x86_64.zip',
-		secondaryCtaLabel: 'Registry',
-		secondaryCtaHref: '/extensions/registry.json'
-	},
-	{
-		id: 'driver-mongodb',
-		name: 'MongoDB driver',
-		kind: 'Database Manager extension',
-		tagline: 'Signed sidecar that connects Database Manager to MongoDB.',
-		version: '0.1.0',
-		logoSrc: '/extensions-logo.svg',
-		ctaLabel: 'Download',
-		ctaHref:
-			'/extensions/packages/dbms-desktop-menzies/driver-mongodb/0.1.0/linux-x86_64.zip',
-		secondaryCtaLabel: 'Registry',
-		secondaryCtaHref: '/extensions/registry.json'
-	}
+	}))
 ];

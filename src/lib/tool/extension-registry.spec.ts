@@ -37,7 +37,7 @@ describe('extension registry', () => {
 		expect(body.schema).toBe(REGISTRY_SCHEMA);
 		expect(body.sequence).toBeGreaterThanOrEqual(3);
 		expect(body.keyId).toBe(EXTENSION_KEY_ID);
-		expect(body.extensions).toHaveLength(5);
+		expect(body.extensions).toHaveLength(13);
 		const face = body.extensions.find((entry) => entry.id === 'face-recognition');
 		expect(face?.id).toBe('face-recognition');
 		expect(face?.availability).toBe('available');
@@ -78,7 +78,29 @@ describe('extension registry', () => {
 		expect(createHash('sha256').update(pgZip).digest('hex')).toBe(pgArtifact?.sha256);
 		expect(
 			body.extensions.filter((entry) => entry.appId === 'dbms-desktop-menzies').map((e) => e.id)
-		).toEqual(['driver-postgres', 'driver-mysql', 'driver-mssql', 'driver-mongodb']);
+		).toEqual([
+			'driver-postgres',
+			'driver-mysql',
+			'driver-mssql',
+			'driver-mongodb',
+			'driver-jdbc',
+			'driver-cql',
+			'driver-redis',
+			'driver-warehouse',
+			'driver-dynamodb',
+			'driver-firebase',
+			'driver-neo4j',
+			'driver-couchbase'
+		]);
+		const jdbc = body.extensions.find((entry) => entry.id === 'driver-jdbc');
+		const jdbcZipPath = resolve(
+			root,
+			'static/extensions/packages/dbms-desktop-menzies/driver-jdbc/0.1.0/linux-x86_64.zip'
+		);
+		const jdbcArtifact = jdbc?.release?.artifacts[0];
+		const jdbcZip = readFileSync(jdbcZipPath);
+		expect(statSync(jdbcZipPath).size).toBe(jdbcArtifact?.size);
+		expect(createHash('sha256').update(jdbcZip).digest('hex')).toBe(jdbcArtifact?.sha256);
 		const serialized = JSON.stringify(source);
 		expect(serialized.includes('store.menzies.design')).toBe(false);
 		expect(serialized.includes('http://')).toBe(false);

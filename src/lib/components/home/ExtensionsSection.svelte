@@ -1,24 +1,8 @@
 <script lang="ts">
+	import BrandIcon from '$lib/components/BrandIcon.svelte';
 	import SectionViewMore from '$lib/components/home/SectionViewMore.svelte';
 	import { MENZIES_EXTENSIONS } from '$lib/tool/store-catalog';
 	import { m } from '$lib/paraglide/messages';
-
-	function extensionTagline(id: string, fallback: string): string {
-		switch (id) {
-			case 'face-recognition':
-				return m.extensions_face_tagline();
-			case 'driver-postgres':
-				return m.extensions_driver_postgres_tagline();
-			case 'driver-mysql':
-				return m.extensions_driver_mysql_tagline();
-			case 'driver-mssql':
-				return m.extensions_driver_mssql_tagline();
-			case 'driver-mongodb':
-				return m.extensions_driver_mongodb_tagline();
-			default:
-				return fallback;
-		}
-	}
 </script>
 
 <section
@@ -27,23 +11,31 @@
 	aria-labelledby="extensions-title"
 >
 	<div class="mx-auto max-w-6xl">
-		<SectionViewMore id="extensions-title" title={m.extensions_section_title()} href="/extensions" />
+		<SectionViewMore
+			id="extensions-title"
+			title={m.extensions_section_title()}
+			href="/extensions"
+		/>
 
 		<ul class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
 			{#each MENZIES_EXTENSIONS as item (item.id)}
 				<li
 					id={`extension-${item.id}`}
-					class="flex h-full flex-col rounded-box border border-ink-border/70 p-6 sm:p-8"
+					class="rounded-box border-ink-border/70 flex h-full flex-col border p-6 sm:p-8"
 				>
-					<img
-						src={item.logoSrc}
-						alt={`${item.name} icon`}
-						width="48"
-						height="48"
-						class="size-12 shrink-0 rounded-box object-contain"
-						decoding="async"
-						loading="lazy"
-					/>
+					{#if item.iconSlug}
+						<BrandIcon slug={item.iconSlug} class="size-12" title={item.name} />
+					{:else if item.logoSrc}
+						<img
+							src={item.logoSrc}
+							alt={`${item.name} icon`}
+							width="48"
+							height="48"
+							class="rounded-box size-12 shrink-0 object-contain"
+							decoding="async"
+							loading="lazy"
+						/>
+					{/if}
 					<p class="text-ink-muted mt-4 text-sm">{item.kind}</p>
 					<h3 class="font-display mt-1 text-xl font-semibold tracking-tight">
 						{item.name}
@@ -52,7 +44,7 @@
 						<p class="text-ink-muted mt-1 text-xs">v{item.version}</p>
 					{/if}
 					<p class="text-ink-muted mt-2 flex-1 text-sm leading-relaxed">
-						{extensionTagline(item.id, item.tagline)}
+						{item.id === 'face-recognition' ? m.extensions_face_tagline() : item.tagline}
 					</p>
 					<div class="mt-6 flex flex-wrap gap-2">
 						<a
@@ -67,9 +59,7 @@
 							<a
 								href={item.secondaryCtaHref}
 								target={item.secondaryCtaHref.startsWith('http') ? '_blank' : undefined}
-								rel={item.secondaryCtaHref.startsWith('http')
-									? 'noopener noreferrer'
-									: undefined}
+								rel={item.secondaryCtaHref.startsWith('http') ? 'noopener noreferrer' : undefined}
 								class="btn btn-ghost cursor-pointer"
 							>
 								{item.secondaryCtaLabel}

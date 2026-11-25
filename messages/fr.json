@@ -25,7 +25,7 @@
 	"view_more": "Voir plus",
 	"plans_page_title": "Offres",
 	"plans_seo_title": "Offres de services web : Medora et plus",
-	"plans_seo_description": "Parcourez les offres de services web Menzies, dont Medora, Loomline et Lumi Studio. Comparez les propositions et ouvrez chaque produit depuis le catalogue du store.",
+	"plans_seo_description": "Parcourez les offres de services web Menzies, dont Medora, NextUp et Lumi Studio. Comparez les propositions et ouvrez chaque produit depuis le catalogue du store.",
 	"apps_page_title": "Apps",
 	"apps_seo_title": "Apps de bureau à télécharger",
 	"apps_seo_description": "Téléchargez les apps de bureau Menzies pour Linux, macOS et Windows. Parcourez Portal, Database Manager, Keycraft, Calculator, Gallery, Notepad et plus, avec les liens de publication du store.",
@@ -92,5 +92,16 @@
 	"extensions_driver_postgres_tagline": "Sidecar signé qui connecte Database Manager à PostgreSQL.",
 	"extensions_driver_mysql_tagline": "Sidecar signé qui connecte Database Manager à MySQL et MariaDB.",
 	"extensions_driver_mssql_tagline": "Sidecar signé qui connecte Database Manager à SQL Server.",
-	"extensions_driver_mongodb_tagline": "Sidecar signé qui connecte Database Manager à MongoDB."
+	"extensions_driver_mongodb_tagline": "Sidecar signé qui connecte Database Manager à MongoDB.",
+	"nav_docs": "Documentation",
+	"docs_chrome_title": "Documentation",
+	"docs_chrome_search": "Rechercher des pages…",
+	"docs_chrome_search_label": "Rechercher",
+	"docs_chrome_open_menu": "Ouvrir le menu",
+	"docs_search_placeholder": "Rechercher dans la doc…",
+	"docs_search_empty": "Aucune page correspondante",
+	"docs_search_close": "Fermer",
+	"docs_on_this_page": "Sur cette page",
+	"docs_prev": "Précédent",
+	"docs_next": "Suivant"
 }

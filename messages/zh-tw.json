@@ -25,7 +25,7 @@
 	"view_more": "查看更多",
 	"plans_page_title": "方案",
 	"plans_seo_title": "網頁服務方案：Medora 等",
-	"plans_seo_description": "瀏覽 Menzies 網頁服務方案，包括 Medora、Loomline 與 Lumi Studio。比較方案內容，並從商店目錄開啟各產品。",
+	"plans_seo_description": "瀏覽 Menzies 網頁服務方案，包括 Medora、NextUp 與 Lumi Studio。比較方案內容，並從商店目錄開啟各產品。",
 	"apps_page_title": "應用程式",
 	"apps_seo_title": "可下載的桌面應用程式",
 	"apps_seo_description": "下載適用於 Linux、macOS 與 Windows 的 Menzies 桌面應用程式。瀏覽 Portal、Database Manager、Keycraft、Calculator、Gallery、Notepad 等，並取得商店中的發行連結。",
@@ -92,5 +92,16 @@
 	"extensions_driver_postgres_tagline": "已簽署的 sidecar，將 Database Manager 連接到 PostgreSQL。",
 	"extensions_driver_mysql_tagline": "已簽署的 sidecar，將 Database Manager 連接到 MySQL 與 MariaDB。",
 	"extensions_driver_mssql_tagline": "已簽署的 sidecar，將 Database Manager 連接到 SQL Server。",
-	"extensions_driver_mongodb_tagline": "已簽署的 sidecar，將 Database Manager 連接到 MongoDB。"
+	"extensions_driver_mongodb_tagline": "已簽署的 sidecar，將 Database Manager 連接到 MongoDB。",
+	"nav_docs": "文件",
+	"docs_chrome_title": "文件",
+	"docs_chrome_search": "搜尋頁面…",
+	"docs_chrome_search_label": "搜尋",
+	"docs_chrome_open_menu": "開啟選單",
+	"docs_search_placeholder": "搜尋文件…",
+	"docs_search_empty": "沒有符合的頁面",
+	"docs_search_close": "關閉",
+	"docs_on_this_page": "本頁內容",
+	"docs_prev": "上一頁",
+	"docs_next": "下一頁"
 }

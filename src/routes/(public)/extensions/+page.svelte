@@ -4,13 +4,10 @@
 	import SeoHead from '$lib/components/seo/SeoHead.svelte';
 	import StoreFooter from '$lib/components/home/StoreFooter.svelte';
 	import StoreNav from '$lib/components/home/StoreNav.svelte';
+	import BrandIcon from '$lib/components/BrandIcon.svelte';
 	import { MENZIES_EXTENSIONS } from '$lib/tool/store-catalog';
 	import { m } from '$lib/paraglide/messages';
-	import {
-		breadcrumbJsonLd,
-		buildSeo,
-		collectionPageJsonLd
-	} from '$lib/util/seo';
+	import { breadcrumbJsonLd, buildSeo, collectionPageJsonLd } from '$lib/util/seo';
 
 	let query = $state('');
 
@@ -22,23 +19,6 @@
 			return hay.includes(q);
 		});
 	});
-
-	function extensionTagline(id: string, fallback: string): string {
-		switch (id) {
-			case 'face-recognition':
-				return m.extensions_face_tagline();
-			case 'driver-postgres':
-				return m.extensions_driver_postgres_tagline();
-			case 'driver-mysql':
-				return m.extensions_driver_mysql_tagline();
-			case 'driver-mssql':
-				return m.extensions_driver_mssql_tagline();
-			case 'driver-mongodb':
-				return m.extensions_driver_mongodb_tagline();
-			default:
-				return fallback;
-		}
-	}
 
 	const seo = $derived(
 		buildSeo({
@@ -72,10 +52,10 @@
 	<StoreNav />
 	<main class="px-4 py-12 sm:px-6 sm:py-16">
 		<div class="mx-auto max-w-6xl">
-			<div
-				class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6"
-			>
-				<h1 class="font-display shrink-0 text-3xl font-semibold tracking-tight text-primary sm:text-4xl">
+			<div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
+				<h1
+					class="font-display text-primary shrink-0 text-3xl font-semibold tracking-tight sm:text-4xl"
+				>
 					{m.extensions_page_title()}
 				</h1>
 				<div class="flex w-full sm:max-w-md sm:flex-1 sm:justify-end md:max-w-xl">
@@ -88,32 +68,36 @@
 			</div>
 
 			{#if filtered.length === 0}
-				<p class="mt-8 text-sm text-ink-muted" role="status">{m.catalog_search_empty()}</p>
+				<p class="text-ink-muted mt-8 text-sm" role="status">{m.catalog_search_empty()}</p>
 			{:else}
 				<ul class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
 					{#each filtered as item (item.id)}
 						<li
 							id={`extension-${item.id}`}
-							class="flex h-full scroll-mt-24 flex-col rounded-box border border-ink-border/70 p-6 sm:p-8"
+							class="rounded-box border-ink-border/70 flex h-full scroll-mt-24 flex-col border p-6 sm:p-8"
 						>
-							<img
-								src={item.logoSrc}
-								alt={`${item.name} logo`}
-								width="48"
-								height="48"
-								class="size-12 shrink-0 rounded-box object-contain"
-								decoding="async"
-								loading="lazy"
-							/>
-							<p class="mt-4 text-sm text-ink-muted">{item.kind}</p>
+							{#if item.iconSlug}
+								<BrandIcon slug={item.iconSlug} class="size-12" title={item.name} />
+							{:else if item.logoSrc}
+								<img
+									src={item.logoSrc}
+									alt={`${item.name} logo`}
+									width="48"
+									height="48"
+									class="rounded-box size-12 shrink-0 object-contain"
+									decoding="async"
+									loading="lazy"
+								/>
+							{/if}
+							<p class="text-ink-muted mt-4 text-sm">{item.kind}</p>
 							<h2 class="font-display mt-1 text-xl font-semibold tracking-tight">
 								{item.name}
 							</h2>
 							{#if item.version}
-								<p class="mt-1 text-xs text-ink-muted">v{item.version}</p>
+								<p class="text-ink-muted mt-1 text-xs">v{item.version}</p>
 							{/if}
-							<p class="mt-2 flex-1 text-sm leading-relaxed text-ink-muted">
-								{extensionTagline(item.id, item.tagline)}
+							<p class="text-ink-muted mt-2 flex-1 text-sm leading-relaxed">
+								{item.id === 'face-recognition' ? m.extensions_face_tagline() : item.tagline}
 							</p>
 							<div class="mt-6 flex flex-wrap gap-2">
 								<a

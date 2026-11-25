@@ -25,7 +25,7 @@
 	"view_more": "もっと見る",
 	"plans_page_title": "プラン",
 	"plans_seo_title": "ウェブサービスプラン: Medora など",
-	"plans_seo_description": "Medora、Loomline、Lumi Studio など Menzies のウェブサービスプランを一覧で比較し、ストアのカタログから各プロダクトへ進めます。",
+	"plans_seo_description": "Medora、NextUp、Lumi Studio など Menzies のウェブサービスプランを一覧で比較し、ストアのカタログから各プロダクトへ進めます。",
 	"apps_page_title": "アプリ",
 	"apps_seo_title": "ダウンロードできるデスクトップアプリ",
 	"apps_seo_description": "Linux / macOS / Windows 向けの Menzies デスクトップアプリをダウンロード。Portal、Database Manager、Keycraft、Calculator、Gallery、Notepad などをストアから探せます。",
@@ -92,5 +92,16 @@
 	"extensions_driver_postgres_tagline": "Database Manager を PostgreSQL に接続する署名済みサイドカー。",
 	"extensions_driver_mysql_tagline": "Database Manager を MySQL と MariaDB に接続する署名済みサイドカー。",
 	"extensions_driver_mssql_tagline": "Database Manager を SQL Server に接続する署名済みサイドカー。",
-	"extensions_driver_mongodb_tagline": "Database Manager を MongoDB に接続する署名済みサイドカー。"
+	"extensions_driver_mongodb_tagline": "Database Manager を MongoDB に接続する署名済みサイドカー。",
+	"nav_docs": "ドキュメント",
+	"docs_chrome_title": "ドキュメント",
+	"docs_chrome_search": "ページを検索…",
+	"docs_chrome_search_label": "検索",
+	"docs_chrome_open_menu": "メニューを開く",
+	"docs_search_placeholder": "ドキュメントを検索…",
+	"docs_search_empty": "一致するページがありません",
+	"docs_search_close": "閉じる",
+	"docs_on_this_page": "このページの内容",
+	"docs_prev": "前へ",
+	"docs_next": "次へ"
 }

@@ -86,5 +86,135 @@ export const washIcons = {
 	x: [
 		['path', { d: 'M18 6 6 18', key: '1bl5f8' }],
 		['path', { d: 'm6 6 12 12', key: 'd8bk6v' }]
+	],
+	bookOpen: [
+		['path', { d: 'M12 5v16', key: '1f6ucr' }],
+		[
+			'path',
+			{
+				d: 'M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z',
+				key: '1fyvmf'
+			}
+		]
+	],
+	stethoscope: [
+		['path', { d: 'M11 2v2', key: '153kiw' }],
+		['path', { d: 'M5 2v2', key: '1m3gvu' }],
+		[
+			'path',
+			{
+				d: 'M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1',
+				key: '8zbcm9'
+			}
+		],
+		['path', { d: 'M8 15a6 6 0 0 0 12 0v-3', key: '1kf3m5' }],
+		['circle', { cx: '20', cy: '10', r: '2', key: '1h7g24' }]
+	],
+	ticket: [
+		[
+			'path',
+			{
+				d: 'M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z',
+				key: '1l4dpu'
+			}
+		],
+		['path', { d: 'M13 5v2', key: '1h6j5o' }],
+		['path', { d: 'M13 17v2', key: '1b8g0x' }],
+		['path', { d: 'M13 11v2', key: '1q3n0z' }]
+	],
+	swatchBook: [
+		['path', { d: 'M11 17a4 4 0 0 1-8 0V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2Z', key: '1ldrpk' }],
+		['path', { d: 'M16.7 13H19a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H7', key: '11i5po' }],
+		['path', { d: 'M 7 17h.01', key: '1euzgo' }],
+		[
+			'path',
+			{
+				d: 'm11 8 2.3-2.3a2.4 2.4 0 0 1 3.404.004L18.6 7.6a2.4 2.4 0 0 1 .026 3.434L9.9 19.8',
+				key: 'o2gii7'
+			}
+		]
+	],
+	settings2: [
+		['path', { d: 'M14 17H5', key: 'gfn3mx' }],
+		['path', { d: 'M19 7h-9', key: '6i9tg' }],
+		['circle', { cx: '17', cy: '17', r: '3', key: '18b49y' }],
+		['circle', { cx: '7', cy: '7', r: '3', key: 'dfmy0x' }]
+	],
+	codeXml: [
+		['path', { d: 'm18 16 4-4-4-4', key: '1inbqp' }],
+		['path', { d: 'm6 8-4 4 4 4', key: '15zrgr' }],
+		['path', { d: 'm14.5 4-5 16', key: 'e7oirm' }]
+	],
+	shapes: [
+		[
+			'path',
+			{
+				d: 'M8.3 10a.7.7 0 0 1-.626-1.079L11.4 3a.7.7 0 0 1 1.198-.043L16.3 8.9a.7.7 0 0 1-.572 1.1Z',
+				key: '1bo67w'
+			}
+		],
+		['rect', { x: '3', y: '14', width: '7', height: '7', rx: '1', key: '1bkyp8' }],
+		['circle', { cx: '17.5', cy: '17.5', r: '3.5', key: 'w3z12y' }]
+	],
+	chartLine: [
+		['path', { d: 'M3 3v16a2 2 0 0 0 2 2h16', key: 'c24i48' }],
+		['path', { d: 'm19 9-5 5-4-4-3 3', key: '2osh9i' }]
+	],
+	bot: [
+		['path', { d: 'M12 8V4H8', key: 'hb8ula' }],
+		['rect', { width: '16', height: '12', x: '4', y: '8', rx: '2', key: 'enze0r' }],
+		['path', { d: 'M2 14h2', key: 'vft8re' }],
+		['path', { d: 'M20 14h2', key: '4cs60a' }],
+		['path', { d: 'M15 13v2', key: '1xurst' }],
+		['path', { d: 'M9 13v2', key: 'rq6x2g' }]
+	],
+	rocket: [
+		['path', { d: 'M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5', key: 'qeys4' }],
+		[
+			'path',
+			{
+				d: 'M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09',
+				key: 'u4xsad'
+			}
+		],
+		[
+			'path',
+			{
+				d: 'M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z',
+				key: '676m9'
+			}
+		],
+		['path', { d: 'M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05', key: '92ym6u' }]
+	],
+	info: [
+		['circle', { cx: '12', cy: '12', r: '10', key: '1mglay' }],
+		['path', { d: 'M12 16v-4', key: '1dtifu' }],
+		['path', { d: 'M12 8h.01', key: 'e9boi3' }]
+	],
+	triangleAlert: [
+		[
+			'path',
+			{
+				d: 'm21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3',
+				key: 'wmoenq'
+			}
+		],
+		['path', { d: 'M12 9v4', key: 'juzpu7' }],
+		['path', { d: 'M12 17h.01', key: 'p32p05' }]
+	],
+	lightbulb: [
+		[
+			'path',
+			{
+				d: 'M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5',
+				key: '1gvzjb'
+			}
+		],
+		['path', { d: 'M9 18h6', key: 'x1upvd' }],
+		['path', { d: 'M10 22h4', key: 'ceow96' }]
+	],
+	copy: [
+		['rect', { width: '14', height: '14', x: '8', y: '8', rx: '2', ry: '2', key: '17jyea' }],
+		['path', { d: 'M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2', key: 'zix9uf' }]
 	]
 } as const satisfies Record<string, WashIconNode>;
